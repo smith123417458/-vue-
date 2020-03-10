@@ -42,8 +42,8 @@
               :class="{'active': nowCategory === 'car'}"
               @click.prevent="changeCategory('car')"
             >
-              <i class="fas fa-car-side"></i>   car 
-             <!-- <img src="https://picsum.photos/30/30/?random=1"> car -->
+              <!-- <i class="fas fa-car-side"></i>   car  -->
+             <img src="https://i.imgur.com/6UqaDxo.png" width="25px"  >   
             </a>
             <a
               href="#"
@@ -59,7 +59,8 @@
               :class="{'active': nowCategory === 'motorbike'}"
               @click.prevent="changeCategory('motorbike')"
             >
-              <i class="fas fa-motorcycle"></i> motorbike
+              <!-- <i class="fas fa-motorcycle"></i> motorbike -->
+              <img src="https://i.imgur.com/yxQKA0t.png" width="37px"  >   
             </a>
             <a
               href="#"

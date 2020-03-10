@@ -12,44 +12,49 @@
           <div class="follow-btn text-center d-flex justify-content-center">
             <a
               class="facebook d-block h3 p-3"
-              href="https://github.com/0445814/V-Headphone"
+               href="https://google.com" 
               title="Facebook"
-              v-scroll-reveal="{origin: 'left',delay: 2000}"
+              v-scroll-reveal="{origin: 'top',delay: 2000}"
             >
-              <i class="fab fa-facebook-f"></i>
+             
+              <img src="https://i.imgur.com/uTlC65S.png" width='35px'>
             </a>
             <a
               class="twitter d-block h3 p-3"
-              href="https://github.com/0445814/V-Headphone"
+              href="https://google.com"
               title="Twitter"
-              v-scroll-reveal="{origin: 'left',delay: 1500}"
+              v-scroll-reveal="{origin: 'right',delay: 1500}"
             >
-              <i class="fab fa-twitter"></i>
+              
+              <img src="https://i.imgur.com/aZ0EvAw.png" width="35px">
             </a>
             <a
               class="instagram d-block h3 p-3"
-              href="https://github.com/0445814/V-Headphone"
+              href="https://google.com"
               title="Instagram"
               v-scroll-reveal="{origin: 'left',delay: 1000}"
             >
-              <i class="fab fa-instagram"></i>
+              
+              <img src="https://i.imgur.com/heDlRrX.png" width="35px" >
             </a>
             <a
               class="youTube d-block h3 p-3"
-              href="https://github.com/0445814/V-Headphone"
+              href="https://google.com"
               title="YouTube"
-              v-scroll-reveal="{origin: 'left',delay: 500}"
+              v-scroll-reveal="{origin: 'top',delay: 500}"
             >
-              <i class="fab fa-youtube"></i>
+              
+                <img src="https://i.imgur.com/WDC9RxE.png" width="35px" >
             </a>
 
             <a
               class="github d-block h3 p-3"
-              href="https://github.com/0445814/V-Headphone"
+              href="https://google.com"
               title="Github"
-              v-scroll-reveal="{origin: 'left',delay: 0}"
+              v-scroll-reveal="{origin: 'right',delay: 0}"
             >
-              <i class="fab fa-github"></i>
+            
+              <img src="https://i.imgur.com/StPdd35.png" width="35px">
             </a>
           </div>
         </div>
