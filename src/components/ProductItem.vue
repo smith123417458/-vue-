@@ -78,10 +78,10 @@ export default {
           data: cart,
         })
         .then(() => {
-          vm.$bus.$emit('sweet-alert', {
-            icon: 'success',
-            title: '已成功加入購物車',
-          });
+          // vm.$bus.$emit('sweet-alert', {
+          //   icon: 'success',
+          //   title: '已成功加入購物車',
+          // });
           vm.$store.dispatch('getCarts');
           vm.$store.dispatch('updateLoading', false); 
         });

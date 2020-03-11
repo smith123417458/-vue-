@@ -193,6 +193,7 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
 export default {
   data() {
     return {
@@ -212,7 +213,12 @@ export default {
       navActive: false,
     };
   },
-
+  computed:{
+    getcar(){
+      return this.$store.state.carts.carts.length
+    }
+  }
+   ,
   watch: {
     /** 監聽路由變動，決定切換 LOGO 圖片與 navbar 樣式。 * */
     $route() {
@@ -239,6 +245,13 @@ export default {
         vm.LOGO = vm.logoBlack;
       }
     },
+ 
+  getcar(){
+    gsap.from(".fa-shopping-cart", 0.1, {
+          scale: 8
+        })
+  }
+
 
   },
 

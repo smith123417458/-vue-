@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import 'bootstrap';
 import $ from 'jquery';
+import gsap from "gsap";
 
 import axios from 'axios';
 import VueAxios from 'vue-axios';
