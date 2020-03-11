@@ -9,6 +9,10 @@
       <div class="col-lg-6">
         <zoom-on-hover :img-normal="product.imageUrl" :scale="1.5"></zoom-on-hover>
       </div>
+
+  
+   
+
       <div class="col-lg-6 d-flex flex-column">
         <h2>{{ product.title }}</h2>
 
@@ -37,9 +41,11 @@
 
 
           
-          <button type="button" class="btn btn-outline-dark" @click="addToCart(product.id)">
+          <button type="button" class="btn btn-outline-dark" @click="addToCart(product.id,$event)">
             加入購物車
           </button>
+           <div class="buybox" v-if='currentcar' :style="{backgroundImage: `url(${product.imageUrl})`}"></div>
+         
         </div>
       </div>
     </div>
@@ -47,11 +53,13 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
 export default {
   data() {
     return {
       product: {},
       qty: 1,
+      currentcar:null,
     };
   },
   methods: {
@@ -65,13 +73,25 @@ export default {
         vm.$store.dispatch('updateLoading', false);
       });
     },
-    addToCart(productId) {
+    addToCart(productId ,evt) {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       const cart = {
         product_id: productId,
         qty: vm.qty,
       };
+
+      this.currentcar =productId
+        this.$nextTick(() => {
+            gsap.from(".buybox", 0.8, {
+            left: $(evt.target).offset().left,
+            top: $(evt.target).offset().top,
+            opacity: 1,
+            // ease: Power1.easeIn
+          })
+
+        })
+
       vm.$store.dispatch('updateLoading', true);
       axios
         .post(apiUrl, {
@@ -100,4 +120,16 @@ export default {
 .bar{
   text-decoration:line-through;
 }
+.buybox{
+  position: fixed;
+  top:64px;
+  right:30px;
+  height: 50px;
+  width: 100px;
+  background-size: cover;
+  background-position: center center;
+  // opacity: 0;
+  
+}
+
 </style>

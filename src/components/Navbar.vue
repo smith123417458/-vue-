@@ -252,7 +252,6 @@ export default {
         })
   }
 
-
   },
 
   methods: {
@@ -341,10 +340,8 @@ export default {
     },
   },
   created() {
-    // 綁定 scroll 監聽事件
     window.addEventListener('scroll', this.windowScroll, false);
 
-    // 取得購物車資訊
     this.$store.dispatch('getCarts');
   },
 
