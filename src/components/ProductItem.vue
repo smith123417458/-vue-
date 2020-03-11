@@ -86,14 +86,6 @@ export default {
           vm.$store.dispatch('updateLoading', false); 
         });
     },
-    decreaseQty() {
-      if (this.qty !== 1) {
-        this.qty -= 1;
-      }
-    },
-    increaseQty() {
-      this.qty += 1;
-    },
   },
   created() {
     this.getProduct();

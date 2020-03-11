@@ -5,19 +5,19 @@
         <div class="col-12 col-md-12 col-lg-3 d-flex flex-column justify-content-between">
           <h2 class="mb-3">好運租車</h2>
           <div class="footer-btn text-right text-md-right text-lg-left mb-5 mb-lg-0">
-            <a class="facebook h5 p-2" href="https://github.com/0445814/V-Headphone" title="Facebook">
+            <a class="facebook h5 p-2" href="#" title="Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a class="twitter h5 p-2" href="https://github.com/0445814/V-Headphone" title="Twitter">
+            <a class="twitter h5 p-2" href="#" title="Twitter">
               <i class="fab fa-twitter"></i>
             </a>
-            <a class="instagram h5 p-2" href="https://github.com/0445814/V-Headphone" title="Instagram">
+            <a class="instagram h5 p-2" href="#" title="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a class="youTube h5 p-2" href="https://github.com/0445814/V-Headphone" title="YouTube">
+            <a class="youTube h5 p-2" href="#" title="YouTube">
               <i class="fab fa-youtube"></i>
             </a>
-            <a class="github h5 p-2" href="https://github.com/0445814/V-Headphone" title="Github">
+            <a class="github h5 p-2" href="#" title="Github">
               <i class="fab fa-github"></i>
             </a>
           </div>
@@ -64,17 +64,21 @@
           <h4 class="h6 mb-4">聯絡我們</h4>
           <ul class="navbar-nav">
             <li class="nav-item py-1">
-              <i class="fal fa-envelope pr-1"></i> a0952987429@yahoo.com.tw
+              
+              <img src="https://i.imgur.com/dQdVCcS.jpg" width="30px">
+               a0952987429@yahoo.com.tw
             </li>
             <li class="nav-item py-1">
-              <i class="fas fa-mobile-alt pr-2"></i> 0935397742
+              
+              <img src="https://i.imgur.com/iCwb6Wq.png" width="30px">
+               0935397742
             </li>
             <li class="nav-item py-1">
               <a
                 class="text-white hvr-underline-reveal"
-                href="https://www.cakeresume.com/s--8PmgyOkduauTGAlF5nuhaw--/ken-chang-673087"
               >
-                <i class="fal fa-birthday-cake pr-1"></i> 盛建雄
+                <img src="https://i.imgur.com/qXuNu2G.png" width="30px">
+                 盛建雄
               </a>
             </li>
           </ul>

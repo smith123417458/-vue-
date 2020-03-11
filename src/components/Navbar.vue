@@ -214,9 +214,7 @@ export default {
   },
 
   watch: {
-    /**
-     *  監聽路由變動，決定切換 LOGO 圖片與 navbar 樣式。
-     * */
+    /** 監聽路由變動，決定切換 LOGO 圖片與 navbar 樣式。 * */
     $route() {
       const vm = this;
       const { path } = this.$route;
@@ -241,6 +239,7 @@ export default {
         vm.LOGO = vm.logoBlack;
       }
     },
+
   },
 
   methods: {

@@ -1,33 +1,6 @@
 <template>
   <div>
-    <!-- jumbotron -->
     <div class="banner"></div>
-     
-    <!-- <img class="banner d-none d-sm-block" src="https://www.ponyrent.com.tw/images/banner.jpg" > -->
-
-
-    <!-- <div class="jumbotron text-white">
-      <div class="container text-right mt-5">
-        <div class="row">
-          <div class="col">
-            <h2>好運租車 開幕回饋</h2>
-            <p class="lead">
-              即刻輸入優惠碼，享折扣價與額外
-              <span class="font-weight-bold">享折扣價與額外</span>
-            </p>
-            <button class="btn btn-outline-light btn-sm" @click="showCoupon">立刻索取</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-
-
-
-
-
- 
  <br>
  <br>
     <div class="container">
@@ -42,7 +15,6 @@
               :class="{'active': nowCategory === 'car'}"
               @click.prevent="changeCategory('car')"
             >
-              <!-- <i class="fas fa-car-side"></i>   car  -->
              <img src="https://i.imgur.com/6UqaDxo.png" width="25px"  >   
             </a>
             <a
@@ -59,7 +31,6 @@
               :class="{'active': nowCategory === 'motorbike'}"
               @click.prevent="changeCategory('motorbike')"
             >
-              <!-- <i class="fas fa-motorcycle"></i> motorbike -->
               <img src="https://i.imgur.com/yxQKA0t.png" width="37px"  >   
             </a>
             <a
@@ -116,7 +87,6 @@ export default {
     changeCategory(selectedCategory) {
       this.$store.dispatch('changeCategory', selectedCategory);
     },
-    // 取得優惠券資料
     getCouponCode() {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=1`;
@@ -157,12 +127,9 @@ export default {
 <style lang="scss" scoped>
 
 .banner{
-  background-image:url(https://www.ponyrent.com.tw/images/banner.jpg);
-  // background-size: cover;
-  // height: 400px;
+  background-image:url(https://www.ponyrent.com.tw/images/banner.jpg);  
   max-width: 100%;
   min-height: 310px;
-  // max-height: 50vh;
   background-position: center center;
   background-repeat: no-repeat;
   
@@ -170,7 +137,6 @@ export default {
 
 @media(max-width:500px){
   .banner{
-    // background: url(https://www.toyota.com.tw/C-HR_UPGRADE/images/kv_03.png);
     background: url(https://www.abcar.com.tw/skin/banner.jpg);
 
     background-size: cover;
@@ -205,29 +171,4 @@ export default {
     &.active { border: 0.5px solid #0c5ac1;
       box-shadow: 0 2px 10px #180cc1;}
       }
-
-
-//  .banner{
-//      width: 100%;
-//      height: 30vh;
-//      object-fit: cover;
-//  }
-//   @media(max-width:500px){
-//    .banner{ 
-//      height: 50vh;
-//    }
-//   }
-
-
-
-// .jumbotron 
-//   // background: url(https://www.toyota.com.tw/C-HR_UPGRADE/images/kv_03.png)
-//    background: url(https://www.ponyrent.com.tw/images/banner.jpg) 
-  
-//     no-repeat;
-//     max-width: 100%;
-
-//   //  background-position: center center;
-//   //  background-size: cover;
-// 
 </style>
