@@ -1,6 +1,6 @@
 <template>
   <div class="position-relative">
-    <!-- swiper -->
+  
     <swiper
       id="swiper"
       :options="swiperOption"
@@ -16,14 +16,10 @@
       </swiper-slide>
     </swiper>
     <div class="swiper-intro p-2 d-none d-sm-block position-absolute">
-        <!-- d-none d-sm-block   小尺寸以下會消失-->
-      <!-- <div class='bglay p-3'>
-       <h1 class="display-3">好運租車</h1>
-      </div> -->
 
       <div class='bglay p-3'>
-       <h1>FUN假去那玩
-       <div class='typing'>我在好運租車等你!</div>
+       <h1> <span>FUN假去那玩</span>
+       <div class='typing'>我在<span class="word">好運租車</span>等你!</div>
        </h1>
       </div>
 
@@ -43,19 +39,22 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
 export default {
   data() {
     return {
-      // ? 如果是從資料庫取得圖片再渲染，進入畫面會有跳動問題
-      // ? 並且開始輪播的圖片不是從陣列的第一張開始播放
-      // ? 但如果是一開始給予圖片，就不會跳動，並且可按照順序播放
+     
       banners: [
-        'https://images.zi.org.tw/incar/2019/06/27052146/1561584105-698381406bd400f3729c84322c86c226.jpg',
+
+           'https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245293E188B7.jpg',
+        // 'https://images.zi.org.tw/incar/2019/06/27052146/1561584105-698381406bd400f3729c84322c86c226.jpg',
+       ' https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245211220201.jpg',
         // 'https://hotaicdn.azureedge.net/toyotaweb/BANNER_2019051013273645C4E06D.jpg',
         // 'https://www.lexus.com.tw/upload/bnr/201911/201911271404300871CF94.jpg',
-        'https://scdn.slashgear.com/wp-content/uploads/2020/01/lamborghini-aventador-svj-roadster-04-1280x720.jpg',
+           ' https://autos.yahoo.com.tw/y/r/w1200/iw/MMT/car/a3544f50dfd9b4ed49fba9b584c836a7_1200.jpg',
+        // 'https://scdn.slashgear.com/wp-content/uploads/2020/01/lamborghini-aventador-svj-roadster-04-1280x720.jpg',
         // 'https://www.lexus.com.tw/upload/bnr/201911/201911271346423EDM26UD.jpg',
         // 'https://images.zi.org.tw/incar/2019/06/25004224/1561394543-559c900da5ac650ef192e03cf2390e28.jpg',
         // 'https://hotaicdn.azureedge.net/toyotaweb/BANNER_201907301648331L6QQ6O2.jpg',
-        'https://tcar.tv/public/upimgs/carnews/Lamborghini/Press/2020/202001/6/SMALL_554586.jpg',
-        
+        // 'https://tcar.tv/public/upimgs/carnews/Lamborghini/Press/2020/202001/6/SMALL_554586.jpg',
+      //  ' https://autos.yahoo.com.tw/y/r/w1200/iw/MMT/car/f18e5e021173ed7441981402bd86219c_1200.jpg'
+          
       ],
       swiperOption: {
         loop: true,
@@ -102,25 +101,34 @@ export default {
 }
 .bglay{
   background-color: rgba(255,255,255,.35);
+  border-radius: 6px;
  
 }
+span{
+  font-weight: 900;
+}
 h1 {
-    color:black;
-    background-color: rgba(0, 0, 0, 0.25);
-    padding: 10px;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 6px;
     border-radius: 10px;
-    width: 345px;
+    width: 381px;
     min-height: 90px;
     max-height: 100%;
     div{
       line-height: 1.4;
     }
+   
+    .word{
+      color: wheat;
+      font-size: 50px;
+    }
+
     .typing {
       width: 9em;
       white-space: nowrap;
       border-right: 2px solid transparent;
       animation: typing 3.5s steps(9, end);
-      //  blink-caret 0.75s step-end infinite;
       overflow: hidden;
       letter-spacing: 0;
     }
@@ -132,14 +140,5 @@ h1 {
         width: 9em;
       }
     }
-    // @keyframes blink-caret {
-    //   from,
-    //   to {
-    //     box-shadow: 2px 0 0 0 transparent;
-    //   }
-    //   50% {
-    //     box-shadow: 2px 0 0 0;
-    //   }
-    // }
   }
 </style>

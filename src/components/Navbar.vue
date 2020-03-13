@@ -2,8 +2,8 @@
   <nav
     class="navbar navbar-expand-xl p-0 fixed-top navDefault"
     :class="{ navActive }"
-    @mouseenter="navMouseEnter"
-    @mouseleave="navMouseLeave"
+     @mouseenter="navMouseEnter"
+     @mouseleave="navMouseLeave"
   >
     <button
       class="hamburger hamburger--collapse navbar-toggler border-0 d-xl-none"
@@ -20,6 +20,8 @@
         <span class="hamburger-inner"></span>
       </span>
     </button>
+
+      <img src="https://i.imgur.com/vbkAgWd.png" class="d-inline">
 
     <div class="collapse navbar-collapse ml-xl-6 order-2 order-xl-1" id="navbarNav">
       <ul class="navbar-nav">
@@ -182,9 +184,14 @@
         </div>
         <div class="row w-100">
           <div class="col">
-            <p class="text-secondary text-center mt-5 w-100">好運租車</p>
+            <p class="text-secondary text-center">FUN假就讓<span class="text-primary font-weight-bold">好運租車</span>帶你出玩</p>
           </div>
         </div>
+         <div class="row w-100 justify-content-center">
+          <div class="col-1">
+         <img src="https://i.imgur.com/vbkAgWd.png" >
+          </div>
+        </div> 
       </div>
     </div>
 
@@ -199,11 +206,6 @@ export default {
     return {
       // 漢堡選單啟用樣式
       isActive: false,
-      // LOGO 圖片(黑、白)
-      LOGO: 'https://i.imgur.com/oiGjEDP.png',
-      logoWhite: 'https://i.imgur.com/oiGjEDP.png',
-      logoBlack: 'https://i.imgur.com/uAIISWn.png',
-      // 依據 navbar 的高度，決定顯示黑、白 LOGO
       navHeight: 0,
       /**
        * 決定 navbar 背景是否啟動，對 <nav> 加入 navActive 樣式
@@ -275,20 +277,17 @@ export default {
         vm.LOGO = vm.logoWhite;
       }
     },
-    // 在 hover 時，改變 LOGO 圖示(白或黑)
-    navMouseEnter() {
+     navMouseEnter() {
       this.navActive = true;
-      this.LOGO = this.logoBlack;
     },
     navMouseLeave() {
       const navTopHeight = Math.floor($('nav').offset().top);
       const { path } = this.$route;
-
       if (navTopHeight === 0 && (path === '/product' || path === '/')) {
         this.navActive = false;
-        this.LOGO = this.logoWhite;
       }
     },
+
     // navbar 代理品牌的 hover 事件
     brandMouseEnter() {
       $('#brand-list')

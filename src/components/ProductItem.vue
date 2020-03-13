@@ -128,7 +128,7 @@ export default {
   width: 100px;
   background-size: cover;
   background-position: center center;
-  // opacity: 0;
+  opacity: 0;
   
 }
 
