@@ -39,13 +39,11 @@
       </div>
     </div>
  <Parallax />
+ <News/>
     <Event />
      <FollowUs />
   </div>
 
-
-
-  
 </template>
 
 <script>
@@ -64,6 +62,8 @@ export default {
     Intro: () => import('@/components/Intro'),
   
     Parallax: () => import('@/components/Parallax'),
+
+    News: () => import('@/components/News'),
    
     Event: () => import('@/components/Event'),
     
