@@ -23,8 +23,10 @@
               :class="{'active': nowCategory === category}"
               v-for="category in this.$store.state.brands.car"
               :key="category"
-              @click.prevent="changeCategory(category)"
-            >{{category}}</a>
+              @click.prevent="changeCategory(category.name)"
+            > <img :src="category.url" width="25px">
+            
+            </a>
             <a
               href="#"
              class="btn category-btn d-md-flex justify-content-center align-items-center p-3" 
@@ -39,8 +41,10 @@
               :class="{'active': nowCategory === category}"
               v-for="category in this.$store.state.brands.motorbike"
               :key="category"
-              @click.prevent="changeCategory(category)"
-            >{{category}}</a>
+              @click.prevent="changeCategory(category.name)"
+            > <img :src="category.url" width="25px">
+            
+            </a>
           </div>
         </div>
 

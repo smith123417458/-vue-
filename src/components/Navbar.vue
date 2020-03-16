@@ -66,14 +66,16 @@
               v-for="category in this.$store.state.brands.car"
               :key="category"
             >
-              <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category)">{{
-                category
-              }}</a>
+              <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category.name)">
+                <!-- {{category}} -->
+              <img :src="category.url" width="45px"> 
+              </a>
             </li>
             <li class="nav-item" v-for="category in this.$store.state.brands.motorbike" :key="category">
-              <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category)">{{
-                category
-              }}</a>
+              <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category.name)">
+                <!-- {{ category}} -->
+               <img :src="category.url" width="45px"> 
+                 </a>
             </li>
           </ul>
         </li>
@@ -136,9 +138,12 @@
                   href="#"
                   v-for="category in this.$store.state.brands.car"
                   :key="category"
-                  @click.prevent="changeCategory(category)"
+                  @click.prevent="changeCategory(category.name)"
                 >
-                  <span class="hvr-underline-reveal">{{ category }}</span>
+                  <span class="hvr-underline-reveal">
+                    <!-- {{ category.name }} -->
+                    <img :src="category.url" width="45px">
+                  </span>
                 </a>
               </div>
             </div>
@@ -159,9 +164,12 @@
                   href="#"
                   v-for="category in this.$store.state.brands.motorbike"
                   :key="category"
-                  @click.prevent="changeCategory(category)"
+                  @click.prevent="changeCategory(category.name)"
                 >
-                  <span class="hvr-underline-reveal">{{ category }}</span>
+                  <span class="hvr-underline-reveal">
+                     <!-- {{ category.name }}  -->
+                     <img :src="category.url" width="45px"> 
+                    </span>
                 </a>
               </div>
             </div>

@@ -31,14 +31,14 @@
                 class="text-light hvr-underline-reveal"
                 href="#"
                 @click.prevent="goPage(brand)"
-              >{{brand}}</a>
+              >{{brand.name}}</a>
             </li>
             <li class="nav-item py-1" v-for="brand in brands.motorbike" :key="brand">
               <a
                 class="text-light hvr-underline-reveal"
                 href="#"
                 @click.prevent="goPage(brand)"
-              >{{brand}}</a>
+              >{{brand.neme}}</a>
             </li>
           </ul>
         </div>

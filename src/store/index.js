@@ -7,8 +7,29 @@ export default new Vuex.Store({
     isLoading: false,
     types: ['car', 'motorbike'],
     brands: {
-      car: ['TOYOTA','LEXUS','MITSUBISHI','Lamborghini', ],
-      motorbike: ['YAMAHA', 'HONDA','BMW','SUZUKI'],
+      car: [
+        
+        {name:'TOYOTA',url:'https://i.imgur.com/CHKtVCP.png'},
+        {name:'LEXUS',url:'https://i.imgur.com/wiA92xg.jpg'},
+        {name:'MITSUBISHI',url:'https://i.imgur.com/qL0KWE2.jpg'},
+        {name:'Lamborghini',url:'https://i.imgur.com/bU7hZPZ.jpg'},
+    ],
+
+
+
+
+      motorbike: [
+        
+        {name:'YAMAHA',url:'https://i.imgur.com/5LG1LQL.jpg'},
+        {name:'HONDA',url:'https://i.imgur.com/nMFOiDH.jpg'},
+        {name:'BMW',url:'https://i.imgur.com/RmPEjhW.jpg'},
+        {name:'SUZUKI',url:'https://i.imgur.com/SzDF7to.jpg'},
+
+
+
+
+
+      ],
     },
     products: [],
     allProducts: [],
