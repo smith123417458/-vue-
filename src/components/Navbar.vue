@@ -340,9 +340,11 @@ export default {
   },
   created() {
     window.addEventListener('scroll', this.windowScroll, false);
-
     this.$store.dispatch('getCarts');
   },
+
+  
+
 
   mounted() {
     // * 這是防止使用者在滾動下 F5 刷新頁面，卻沒有加入 navActive 樣式

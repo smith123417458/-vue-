@@ -26,11 +26,31 @@
         <p class="h4 text-right text-danger" v-if="product.price">特價 NT {{ product.price | currency }}/天</p>
 
         <p class="border-bottom mb-5"></p>
+
+
         <p class="mb-5 font-weight-bold h4" style="line-height: 1.5">{{ product.description }}</p>
+
+
+
         <!-- <ul class="mb-5">
           <li class="mb-3" v-for="(content, key) in product.content" :key="key">{{ content }}</li>
         </ul> -->
-       <p class="mb-5  h6" style="line-height: 1.0">{{product.content}}</p>
+
+       <!-- <ul>
+         <li><h6>外觀部份標配 17 吋鋁圈 、感應式 LED Bi-Beam 頭燈組</h6></li>
+         <br>
+         <li><h6>全數採用 LED 光源的尾燈</h6></li>
+         <br>
+         <li><h6>油電車型專屬的 LED 頭燈及尾燈組配置身<h6></li>
+       </ul>
+
+      外觀部份標配 17 吋鋁圈 、感應式 LED Bi-Beam 頭燈組以及全數採用 LED 
+      光源的尾燈</br>、霧燈及晝行燈。 Hybrid 
+      尊爵車型在外觀部份改採油電車型專屬的 LED 頭燈及尾燈組配置身 -->
+
+
+       <!-- <p class="mb-5  h6" style="line-height: 1.0">{{product.content}}</p>  -->
+       <p class="mb-5  h6" style="line-height: 1.0" v-html="product.content"></p> 
 
         <div class="row justify-content-between">
 
