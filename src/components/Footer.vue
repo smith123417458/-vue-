@@ -116,6 +116,6 @@ export default {
 
 <style lang="scss">
 .hvr-underline-reveal:before {
-  background: gray;
+  background:yellowgreen;
 }
 </style>

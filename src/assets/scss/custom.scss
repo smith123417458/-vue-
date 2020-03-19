@@ -38,26 +38,30 @@
   color: #000;
 }
 
-.footer-btn a {
-  color: #fff;
-}
 
-a.facebook:hover {
-  color: #3b5998;
+.footer-btn a:hover {
+  color: white;
 }
-
-a.twitter:hover {
+.footer-btn .facebook{
   color: #00aced;
 }
 
-a.instagram:hover {
-  color: #FCAF45;
+
+.footer-btn .twitter {
+  color:brown;
 }
 
-a.youTube:hover {
+.footer-btn .instagram {
+  color: orange;
+}
+
+
+
+.footer-btn .youTube {
   color: #FF0000;
 }
 
-a.github:hover {
-  color: gray;
+
+.footer-btn .github {
+ color: cornflowerblue;
 }

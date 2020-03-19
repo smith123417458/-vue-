@@ -38,6 +38,7 @@
         </card>
       </div>
     </div>
+  <Time/>
  <Parallax />
  <News/>
     <Event />
@@ -64,6 +65,9 @@ export default {
     Parallax: () => import('@/components/Parallax'),
 
     News: () => import('@/components/News'),
+
+    Time: () => import('@/components/Time'),
+
    
     Event: () => import('@/components/Event'),
     
