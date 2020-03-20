@@ -127,7 +127,7 @@
                 <router-link class="d-block text-center" to="/product">
                   <img
                     class
-                    src="https://images.zi.org.tw/incar/2019/06/27052146/1561584105-698381406bd400f3729c84322c86c226.jpg"
+                    src="img/304.png"
                     width="100"
                   />
                 </router-link>
@@ -153,7 +153,7 @@
                 <h2 class="h4 text-center font-weight-bold m-0">motorbike</h2>
                 <a class="d-block text-center" href="#" @click="changeCategory('motorbike')">
                   <img
-                    src="https://i.imgur.com/aYw53up.jpg"
+                    src="img/305.png"
                     width="100"
                   />
                 </a>
@@ -177,7 +177,7 @@
 
           <a
             class="col-5"
-            style="background: url(https://i.imgur.com/52Uyvxs.jpg); background-size: cover; background-position: center center;"
+            style="background: url(img/303.jpg); background-size: cover; background-position: center center;"
             href="#"
             @click.prevent="changeCategory('car')"
           >

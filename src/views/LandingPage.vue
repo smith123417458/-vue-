@@ -12,7 +12,7 @@
       </h3>
       <div class="d-flex flex-wrap justify-content-center mb-5 pb-5" style="overflow: hidden;">
         <card
-          data-image="https://i.imgur.com/r92U467.jpg"
+          data-image="img/301.jpg"
           v-scroll-reveal="{origin: 'left'}"
         >
           <h3 slot="header" class="h2">好運租車</h3>
@@ -25,8 +25,7 @@
             >立即前往</button>
           </div>
         </card>
-        <card
-          data-image="https://i.imgur.com/hMV1R04.jpg"
+        <card data-image="img/302.jpg"
           v-scroll-reveal="{origin: 'right'}"
         >
           <h3 slot="header" class="h2">好運機車</h3>

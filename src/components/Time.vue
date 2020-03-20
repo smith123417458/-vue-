@@ -7,12 +7,14 @@
       <div class="row justify-content-center align-item-center">
         <div class="flagTime col-md-5 my-2 d-flex flex-column
                     justify-content-center align-items-center">
-          <div class="flag mb-3 text-primary">午憩。非米不可</div>
-          <div class=" content text-center text-primary mb-2">
-            ｢非米不可-米食料理競賽｣<br>
-            午憩辦理競賽推動「食米教育」的理念，透過健康飲食教育，讓民眾具體認識及瞭解稻米文化、稻米營養觀念，並發揮創意製作多樣化米食。
+          <div class="flag mb-3 text-success">打靶小遊戲</div>
+          <div class=" content text-center text-info mb-2">
+            ｢遊戲規則｣<br>
+            10秒內,得到180分以下,即可獲得七折優惠碼
           </div>
-          <div class="time text-primary">September 07 2018</div>
+          
+          <br>
+          <div class="time text-primary">我要打靶</div>
         </div>
         <div class="picture col-md-6 mb-3">
           <div class="box"></div>
@@ -37,12 +39,14 @@
                   d-flex justify-content-center align-item-center" >
         <div class="flagTime col-md-5 my-2 d-flex flex-column
                     justify-content-center align-items-center">
-          <div class="flag mb-3 text-primary">午憩。我喜番你</div>
-          <div class=" content text-center text-primary mb-2">
-            ｢我喜番你-鮮採番茄活動列車｣<br>
-            午憩安排接駁車供報名民眾乘座，並配有隨車人員進行活動解說，讓參與民眾親自接觸土壤，親手摘採番茄，實際體驗大自然的風情。
+          <div class="flag mb-3 text-success">抓牌小遊戲</div>
+          <div class=" content text-center text-info mb-2">
+            ｢遊戲規則｣<br>
+            遊戲開始,電腦會指定牌的花色,接著進行洗牌後,請指出該花色牌的位置
+            即可獲得五折優惠碼
           </div>
-          <div class="time text-primary">December 07 2018</div>
+          <br>
+          <div class="time text-primary">我要抓牌</div>
         </div>
         <div class="picture col-md-6 mb-3">
           <div class="box"></div>
@@ -61,35 +65,6 @@
           </div>
         </div>
       </div>
-
-      <div class="row d-flex justify-content-center align-item-center" >
-        <div class="flagTime col-md-5 my-2 d-flex flex-column
-                    justify-content-center align-items-center">
-          <div class="flag mb-3 text-primary">午憩。最莓麗</div>
-          <div class="content text-center text-primary mb-2">
-            ｢最苺麗-新鮮草莓甜點DIY｣<br>
-            午憩提供舒適的環境，專業的器具及食材、並由專業指導老師帶著您不用高昂的學費，只要有顆童趣的心，就可以跟著我們動手做，體會手做烘培的美好與樂趣，讓您可以快樂學烘焙、愛上做烘培！
-          </div>
-          <div class="time text-primary">December 25 2018 </div>
-        </div>
-        <div class="picture col-md-6 ">
-          <div class="box"></div>
-          <div class="carousel d-flex justify-content-center align-items-center">
-            <div class="swiper-container swiper-container4">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[6]})`,}"></div>
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[7]})`,}"></div>
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[8]})`,}"></div>
-              </div>
-              <div class="swiper-pagination "></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
