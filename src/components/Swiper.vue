@@ -15,7 +15,7 @@
         />
       </swiper-slide>
     </swiper>
-    <div class="swiper-intro p-2 d-none d-sm-block position-absolute">
+    <div class="swiper-intro p-2  d-sm-block position-absolute">
 
       <div class='bglay p-3'>
        <h1> <span>FUN假去那玩</span>
@@ -90,9 +90,21 @@ export default {
   }
 }
 .swiper-intro {
-  top: 7%;
-  left: 0%;
+  top: 30%;
+  left: 38%;
   z-index: 10;
+}
+
+@media (max-width: 800px) {
+  .swiper-intro {
+  left: 25%;
+}
+}
+
+@media (max-width: 500px) {
+  .swiper-intro {
+  left: 11%;
+}
 }
 
 .scroll-icon {
@@ -114,9 +126,10 @@ h1 {
     background-color: rgba(0, 0, 0, 0.85);
     padding: 6px;
     border-radius: 10px;
-    width: 381px;
+    // width: 381px;
     min-height: 90px;
     max-height: 100%;
+
     div{
       line-height: 1.4;
     }
@@ -125,7 +138,12 @@ h1 {
       color: wheat;
       font-size: 50px;
     }
+    @media (max-width: 500px) {
+    .word{
+      font-size: 30px;
+    }
 
+    }
     .typing {
       width: 9em;
       white-space: nowrap;
@@ -143,4 +161,14 @@ h1 {
       }
     }
   }
+
+ @media (max-width: 500px) {
+    h1{
+      font-size: 30px; 
+   }
+
+ }
+
+
+
 </style>
