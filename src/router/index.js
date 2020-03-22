@@ -26,7 +26,11 @@ const routes = [{
   {
     path: "signin",
     component: () => import('@/components/Login.vue'),
-  }
+  },
+  // {
+  //   path: "pubgGame",
+  //   component: () => import('@/components/pubgGame.vue'),
+  // }
 
 ,
   {

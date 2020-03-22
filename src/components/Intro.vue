@@ -5,11 +5,11 @@
      v-scroll-reveal="{origin: 'bottom'}"
   >
     <div class="p-1" >
-      <h2 class="h2 typing mb-4">
+      <h4 class="h4 typing mb-4">
         好運租車
         <span>優質可靠輕鬆行編全台</span>
-      </h2>
-      <p class="h2 mb-4 typing">線上/手機即可預約,輕鬆成行</p>
+      </h4>
+      <p class="h4 mb-4 typing">線上/手機即可預約,輕鬆成行</p>
       
       <router-link class="light" to="/product">
       
@@ -40,7 +40,7 @@ section{
   background-color: black;
   margin-top: 0px !important;
 }
-h2,p{
+h4,p{
   color: rgb(255, 0, 170);
 }
 .typing {

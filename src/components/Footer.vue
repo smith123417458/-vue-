@@ -22,28 +22,7 @@
             </a>
           </div>
         </div>
-
-        <div class="col-2 d-none d-md-block">
-          <h4 class="h6 mb-4">車款選擇</h4>
-          <ul class="navbar-nav">
-            <li class="nav-item py-1" v-for="brand in brands.car" :key="brand">
-              <a
-                class="text-light hvr-underline-reveal"
-                href="#"
-                @click.prevent="goPage(brand)"
-              >{{brand.name}}</a>
-            </li>
-            <li class="nav-item py-1" v-for="brand in brands.motorbike" :key="brand">
-              <a
-                class="text-light hvr-underline-reveal"
-                href="#"
-                @click.prevent="goPage(brand)"
-              >{{brand.neme}}</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-2 d-none d-md-block">
+     <div class="col-2 d-none d-md-block">
           <h4 class="h6 mb-4">接送服務</h4>
           <ul class="navbar-nav">
             <li class="nav-item py-1">
@@ -96,26 +75,8 @@
 
 <script>
 export default {
-  methods: {
-    // 前往所選擇的產品分類頁面
-    goPage(selectedCategory) {
-      this.$store.dispatch('changeCategory', selectedCategory);
-      if (this.$route.path !== '/product') {
-        this.$router.push('/product');
-      }
-      this.$bus.$emit('goTop');
-    },
-  },
-  computed: {
-    brands() {
-      return this.$store.state.brands;
-    },
-  },
 };
 </script>
 
 <style lang="scss">
-.hvr-underline-reveal:before {
-  background:yellowgreen;
-}
 </style>

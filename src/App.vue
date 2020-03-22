@@ -15,11 +15,9 @@ export default {
   //   },
   // },
   /**
-   ** ***** 全域註冊 Event bus *****
-   *
-   * 1. Sweet alert 事件，參數為 icon (成功或失敗)、title (顯示的文字訊息)
-   *
-   * 2. goTop 事件，滾動至網頁頂部(避免轉換頁面時，畫面跑掉)，並藉由 Navbar.vue 的 watch 監聽在每次切換路由時滾動至頂部
+            全域註冊 Event bus 
+    1. Sweet alert 事件，參數為 icon (成功或失敗)、title (顯示的文字訊息)
+    2. goTop 事件，滾動至網頁頂部(避免轉換頁面時，畫面跑掉)，並藉由 Navbar.vue 的 watch 監聽在每次切換路由時滾動至頂部
    */
   created() {
     // Sweet alert 成功或失敗
