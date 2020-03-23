@@ -15,7 +15,6 @@
           
           <br>
           <div class="time text-primary">我要打靶</div>
-           <p><a href="p.html">Visit our HTML tutorial</a></p>
             <!-- <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>  -->
         </div>
         <div class="picture col-md-6 mb-3">
@@ -49,6 +48,7 @@
           </div>
           <br>
           <div class="time text-primary">我要抓牌</div>
+            <router-link to="/cardGame" class="btn btn-primary"> 立即開始 </router-link>  
         </div>
         <div class="picture col-md-6 mb-3">
           <div class="box"></div>

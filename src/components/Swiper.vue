@@ -41,11 +41,14 @@ export default {
     return {
      
       banners: [
-            'img/401.jpg',
-            'img/402.jpg',
-            'img/403.jpg',
-          //  'https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245293E188B7.jpg',
-        // 'https://images.zi.org.tw/incar/2019/06/27052146/1561584105-698381406bd400f3729c84322c86c226.jpg',
+            'https://i.imgur.com/8dyOftZ.jpg',
+            'https://i.imgur.com/opvSX7g.jpg',
+            'https://i.imgur.com/xq5aU0T.jpg',
+            // 'img/401.jpg',
+            // 'img/402.jpg',
+            // 'img/403.jpg',
+          //   'https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245293E188B7.jpg',
+          //  'https://images.zi.org.tw/incar/2019/06/27052146/1561584105-698381406bd400f3729c84322c86c226.jpg',
       //  ' https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245211220201.jpg',
         // 'https://hotaicdn.azureedge.net/toyotaweb/BANNER_2019051013273645C4E06D.jpg',
         // 'https://www.lexus.com.tw/upload/bnr/201911/201911271404300871CF94.jpg',

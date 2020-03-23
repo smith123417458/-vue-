@@ -34,14 +34,14 @@
           <ul id="brand-list-rwd" class="navbar-nav d-xl-none">
             <li
               class="nav-item"
-              v-for="category in this.$store.state.brands.car"
-              :key="category"
+              v-for="(category,id) in this.$store.state.brands.car"
+              :key="id+'1'"
             >
               <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category.name)">       
               <img :src="category.url" width="45px"> 
               </a>
             </li>
-            <li class="nav-item" v-for="category in this.$store.state.brands.motorbike" :key="category">
+            <li class="nav-item" v-for="(category,index) in this.$store.state.brands.motorbike" :key="index+'2'">
               <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category.name)">
              
                <img :src="category.url" width="45px"> 
@@ -94,8 +94,8 @@
                 <a
                   class="d-block text-black p-3 px-4"
                   href="#"
-                  v-for="category in this.$store.state.brands.car"
-                  :key="category"
+                  v-for="(category,ind) in this.$store.state.brands.car"
+                  :key="ind+'3'"
                   @click.prevent="changeCategory(category.name)"
                 >
                   <span class="hvr-underline-reveal">                 
@@ -118,8 +118,8 @@
                 <a
                   class="d-block text-black p-3 px-4"
                   href="#"
-                  v-for="category in this.$store.state.brands.motorbike"
-                  :key="category"
+                  v-for="(category,inde) in this.$store.state.brands.motorbike"
+                  :key="inde+'4'"
                   @click.prevent="changeCategory(category.name)"
                 >
                   <span class="hvr-underline-reveal">
@@ -179,7 +179,7 @@ export default {
       // 當路由發生變動時，將畫面滾動至頂部，但若是回首頁則不需要
       // * 也可以使用 router 的 scrollBehavior 方法
       if (path !== '/') {
-        // vm.$bus.$emit('goTop');
+         vm.$bus.$emit('goTop');
       }
       // 將 navbar 的 menu 關閉
        $('.navbar-collapse').collapse('hide');
@@ -237,11 +237,6 @@ export default {
         .stop()
         .slideUp(300);
     },
-    brandTouch() {
-      $('#brand-list-rwd')
-        .stop()
-        .slideToggle(300);
-    },
     // 滾動至錨點
     goNewArrival() {
       const vm = this;
@@ -279,23 +274,11 @@ export default {
   created() {
     window.addEventListener('scroll', this.windowScroll, false);
     this.$store.dispatch('getCarts');
-  },
-
-  mounted() {
-    // * 這是防止使用者在滾動下 F5 刷新頁面，卻沒有加入 navActive 樣式
-    // TODO 應該有其他方法可以做到 F5 刷新也能啟動鉤子
-    // ! 必須寫在 mounted 才有效。
-    const { path } = this.$route;
-    if (path !== '/' && path !== '/product') {
-      vm.navActive = true;
-    }
-  },
+  },  
 };
 </script>
 
 <style lang="scss" scoped>
-// 漢堡插件
-@import "~hamburgers/_sass/hamburgers/hamburgers.scss";
 @import "@/assets/scss/customMixins.scss";
 
 // navbar 預設樣式
