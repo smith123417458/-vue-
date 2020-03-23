@@ -2,8 +2,8 @@
  <div id="app">
 
  
-  <h1>{{ state }}</h1>
-  <div class="cards" :class="{gather: gather}">
+   <div class="text"><h1>{{ state }}</h1>     </div>
+   <div class="cards" :class="{gather: gather}">
 
     <div class="card" v-for="(card,index) in cards" :key="index" :data-order="card.id" 
     :class="{open: card.open}" @click="openCard(card)">
@@ -11,8 +11,39 @@
       <div class="face back"></div>
         <div class="face front">{{ getSymbol(card.label) }}</div> 
      </div>
+    </div>
 
+ <div class="modal fade p-0" id="couponModal" tabindex="-1" role="dialog"
+  aria-labelledby="couponModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+     <div class="modal-bg"></div>
+     <div class="modal-content bg-transparent border-0 text-center">
+       <div class="modal-body" style="margin-top: 5rem">
+         <div class="mb-md-5 pb-md-5 pb-4">
+           <h3 class="mb-3 text-dark">恭喜您獲得</h3>
+           <h3 class="mb-3 model-text text-dark">八折優惠碼</h3>
+           <h4><span class="badge text-dark badge-success px-5 py-2">17458</span></h4>
+         </div>
+         <div class="text-center">
+           <router-link class="btn btn-danger mr-5" to="/product"
+            data-dismiss="modal">馬上租車去</router-link>
+           <button class="btn btn-secondary" @click.prevent="hideCard()"
+            data-dismiss="modal">己複製優惠碼 </button>
+         </div>
+       </div>
+     </div>
+   </div>
  </div>
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
@@ -108,18 +139,20 @@ export default {
       return this.cards.find(card=>card.label==label)
     },
 
-
-
+   hideCard(){
+      $('#couponModal').modal('hide');
+   },
 
     openCard(card){
       if (this.mode=="answer"){
         card.open=!card.open
         if (card.label==this.question.label){
+           $('#couponModal').modal('show');
+          this.state=" 你的優惠碼是17458!!!"
           this.state="You get the "+this.question.label+this.question.symbol+"!!! "
                     
         }else{
-          $('#couponModal').modal('show');
-          this.state="你輸了 你的優惠碼是17458!!!"
+         
           setTimeout(()=>{
             this.getCard(this.question.label).open=true 
           },1000)
@@ -142,6 +175,19 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.text{
+   position: absolute;
+  top:9%;
+  
+}
+
+@media (max-width:800px) {
+  h1{
+    font-size: 26px;
+   
+  }
 }
 
 .cards {
@@ -227,9 +273,27 @@ transform: rotate(371deg);
  transform: rotate(379deg);
 }
 
+.modal-bg {
+  position: absolute;
+  height: 512px;
+  width: 512px;
+  background: url(https://i.imgur.com/xIJadJc.png ) center center no-repeat;
+ 
+}
+
+@media (max-width: 767px){
+.modal-bg{
+    width: 320px;
+    height: 320px;
+    background: url(https://i.imgur.com/vt5x1Kk.png)center center no-repeat;
+  }}
 
 
+@media (max-width: 767px) {
+  .model-text {
+    font-size: 1.25rem;
+  }
 
+}
 
 </style>
-
