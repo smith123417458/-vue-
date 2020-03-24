@@ -31,6 +31,13 @@ const routes = [{
     path: "cardGame",
    component: () => import('@/components/cardGame.vue'),
    }
+   ,
+   {
+    path: "pubgGame",
+   component: () => import('@/components/pubgGame.vue'),
+   }
+
+
 
 ,
   {

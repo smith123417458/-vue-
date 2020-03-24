@@ -14,8 +14,8 @@
           </div>
           
           <br>
-          <div class="time text-primary">我要打靶</div>
-            <!-- <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>  -->
+          <!-- <div class="time text-primary">我要打靶</div> -->
+             <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>  
         </div>
         <div class="picture col-md-6 mb-3">
           <div class="box"></div>

@@ -13,8 +13,7 @@
      </div>
     </div>
 
- <div class="modal fade p-0" id="couponModal" tabindex="-1" role="dialog"
-  aria-labelledby="couponModalCenterTitle" aria-hidden="true">
+ <div class="modal fade p-0" id="couponModal" tabindex="-1" role="dialog">
    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
      <div class="modal-bg"></div>
      <div class="modal-content bg-transparent border-0 text-center">

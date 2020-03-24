@@ -12,8 +12,8 @@ import VueScrollReveal from 'vue-scroll-reveal';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
-
-import VeeValidate from 'vee-validate';
+// import VeeValidate from 'vee-validate';
+import * as VeeValidate from 'vee-validate';
 import zhTW from 'vee-validate/dist/locale/zh_TW';
 import VueI18n from 'vue-i18n';
 
@@ -59,7 +59,7 @@ Vue.use(VueSweetalert2);
 
 Vue.use(VueScrollReveal, {
   class: 'v-scroll-reveal', // A CSS class applied to elements with the v-scroll-reveal directive; useful for animation overrides.
-  duration: 2000, // 持續時間
+  duration: 2000, 
   reset: false,
   // origin: 'left', // top right bottom left
   // scale: 1,
