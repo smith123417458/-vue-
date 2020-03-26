@@ -3,19 +3,19 @@
      <div>
     
    </div> 
-   <div class="target">
-    <div class="cir1" data-label="5"></div>
-    <div class="cir2" data-label="4"></div>
-    <div class="cir3" data-label="3"></div>
-    <div class="cir4" data-label="2"></div>
-     <div class="cir5" data-label="1"></div>
+   <div class="target" >
+    <div class="cir1" @click="shot" data-label="5"></div>
+    <div class="cir2" @click="shot" data-label="4"></div>
+    <div class="cir3" @click="shot" data-label="3"></div>
+    <div class="cir4" @click="shot"  data-label="2"></div>
+     <div class="cir5" @click="shot" data-label="1"></div>
     </div>
 
     <div class="infos">
    <audio id="audio" src="img/sound.wav" autostart="false"></audio>
    <h1 class="mouseText"></h1>
-    <h1 class="countbox">經過了x秒</h1>
-    <h1 class="score">打靶分數: 0</h1>
+    <h1 class="countbox">經過了{{sec}}秒</h1>
+    <h1 class="score">打靶分數:{{score}}</h1>
     <h3 class="explain">重新開始 按R鍵 , <br>簡單模式按 K鍵                   
    </h3>
    </div>
@@ -55,20 +55,31 @@
 <script>
 
 export default{   
+
+data(){
+return{
+  score:12,
+  sec:1
+};
+},
+
+methods:{
+  shot(){
+    this.score += 30;
+   var audio =document.getElementById('audio');
+     audio.play();
+      if(this.score>30 & this.sec<3 ){
+      $("#bg").fadeIn(300);
+      window.clearInterval(timer)
+    }
+  }
+,
+
+
+ }
+,
 created() {
-document
-
  $("#bg").hide();
-
-
-  var score = 0
-
-  $("[class^='cir']").click(function () {
-    let add = $(this).attr('data-label')
-    console.log(add)
-    score += parseInt(add * 10)
-    updateGame()
-  })
 
   $(window).keydown(function (evt) {
     if (evt.key == "r") {
@@ -78,25 +89,11 @@ document
       $(".target").toggleClass("movinge")
     }
   })
-  var sec=1;
-  var timer = setInterval(function(){
-  $(".countbox").text("經過了:"+sec+"秒");
-  sec=sec+1;
+  var timer = setInterval(()=>{
+  //在vue中setInterval要用箭頭函式
+  this.sec += 1;
   },1000);
 
-
-  function updateGame() {
-    $(".score").text("Score: " + score)
-
-    var audio =document.getElementById('audio');
-  audio.play();
-    if(score>180 & sec<5 ){
-    
-      $("#bg").fadeIn(300);
-    
-      clearInterval(timer)
-    }
-  }
 
   $("#ok").click(function(){
 		$("#bg").fadeOut(300);
@@ -126,15 +123,9 @@ document
   $('.ticket-in').toggleClass('active')})
 
 }
-,
 
 
-
-
- }
-
-
-
+}
 
 </script>
 

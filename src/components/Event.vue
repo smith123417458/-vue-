@@ -45,7 +45,8 @@
 
 .event-img {
   min-height: 450px;
-  background: url(https://www.honda-taiwan.com.tw/UploadFiles/HondaCar/PC%20Banner_CR-V.jpg) no-repeat;
+  background: url(https://i.imgur.com/RJiVPLO.jpg) no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 </style>

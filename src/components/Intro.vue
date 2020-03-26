@@ -41,8 +41,14 @@ section{
   margin-top: 0px !important;
 }
 h4,p{
-  color: rgb(255, 0, 170);
+  color:chartreuse;
 }
+ @media (max-width: 520px) {
+   h4{
+     margin-top: 75px;
+     color: chartreuse;
+   }
+ }
 .typing {
       width: 15em;
       white-space: nowrap;

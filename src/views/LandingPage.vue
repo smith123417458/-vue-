@@ -57,22 +57,22 @@ export default {
 
   components: {
 
-    Swiper: () => import('@/components/Swiper'),
+      Swiper: () => import('@/components/Swiper'),
 
-    Intro: () => import('@/components/Intro'),
+      Intro: () => import('@/components/Intro'),
   
-    Parallax: () => import('@/components/Parallax'),
+     Parallax: () => import('@/components/Parallax'),
 
-    News: () => import('@/components/News'),
+      News: () => import('@/components/News'),
 
-    Time: () => import('@/components/Time'),
+      Time: () => import('@/components/Time'),
 
    
-    Event: () => import('@/components/Event'),
+      Event: () => import('@/components/Event'),
     
-    FollowUs: () => import('@/components/FollowUs'),
+     FollowUs: () => import('@/components/FollowUs'),
 
-    card: () => import('@/components/PrdouctType'),
+     card: () => import('@/components/PrdouctType'),
   },
 };
 </script>

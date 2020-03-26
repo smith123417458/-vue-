@@ -1,10 +1,17 @@
 <template>
+
+
   <nav
     class="navbar navbar-expand-xl p-0 fixed-top navDefault"
     :class="{ navActive }"
      @mouseenter="navMouseEnter"
      @mouseleave="navMouseLeave"
   >
+ <a class="navbar-brand" href="#">
+    <img src="https://i.imgur.com/YXX7oS3.png" width="30" height="30" 
+    class="d-inline-block align-top ml-4" >
+    好運租車
+  </a>
      <div class="collapse navbar-collapse ml-xl-6 order-2 order-xl-1" >
       <ul class="navbar-nav"> 
         <li class="nav-item">
@@ -26,29 +33,7 @@
           </a>
         </li>
 
-        <!-- 手機下的車款選擇 -->
-        <li class="nav-item d-xl-none">
-          <a class="nav-link p-3 px-4" href="#" @click.prevent="brandTouch">
-            <span class="align-middle">車款選擇</span>
-          </a>
-          <ul id="brand-list-rwd" class="navbar-nav d-xl-none">
-            <li
-              class="nav-item"
-              v-for="(category,id) in this.$store.state.brands.car"
-              :key="id+'1'"
-            >
-              <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category.name)">       
-              <img :src="category.url" width="45px"> 
-              </a>
-            </li>
-            <li class="nav-item" v-for="(category,index) in this.$store.state.brands.motorbike" :key="index+'2'">
-              <a to="#" class="nav-link pl-5" @click.prevent="changeCategory(category.name)">
-             
-               <img :src="category.url" width="45px"> 
-                 </a>
-            </li>
-          </ul>
-        </li>       
+       
       </ul>
     </div>
     <!-- 會員登入 -->
@@ -127,7 +112,7 @@
                      <img :src="category.url" width="45px"> 
                     </span>
                 </a>
-              </div>
+              </div>aa
             </div>
           </div>
            <a
@@ -154,6 +139,7 @@
 
     
   </nav>
+
 </template>
 
 <script>
