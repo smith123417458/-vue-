@@ -10,12 +10,14 @@
           <div class="flag mb-3 text-success">打靶小遊戲</div>
           <div class=" content text-center text-info mb-2">
             ｢遊戲規則｣<br>
-            10秒內,得到180分以下,即可獲得七折優惠碼
+            10秒內,得到180分以下,即可獲得<span class="display-4 text-danger font-weight-bold">
+              七折優惠碼</span>
           </div>
           
           <br>
-          <!-- <div class="time text-primary">我要打靶</div> -->
-             <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>  
+             <!-- <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>   -->
+            <button type="button" class="btn btn-outline-primary"> 
+              <a href="https://n42.netlify.com">立即開始</a></button>
         </div>
         <div class="picture col-md-6 mb-3">
           <div class="box"></div>
@@ -25,10 +27,7 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide bgCover "
                     :style="{backgroundImage :`url(${imgUrl[0]})`,}"></div>
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[1]})`,}"></div>
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[2]})`,}"></div>
+                
               </div>
               <div class="swiper-pagination "></div>
             </div>
@@ -44,7 +43,7 @@
           <div class=" content text-center text-info mb-2">
             ｢遊戲規則｣<br>
             遊戲開始,電腦會指定牌的花色,接著進行洗牌後,請指出該花色牌的位置
-            即可獲得五折優惠碼
+            即可獲得<span class="display-4 text-danger font-weight-bold">五折優惠碼</span>
           </div>
           <br>
           <!-- <div class="time text-primary">我要抓牌</div> -->
@@ -56,11 +55,8 @@
             <div class="swiper-container swiper-container3">
               <div class="swiper-wrapper">
                 <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[3]})`,}"></div>
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[4]})`,}"></div>
-                <div class="swiper-slide bgCover "
-                    :style="{backgroundImage :`url(${imgUrl[5]})`,}"></div>
+                    :style="{backgroundImage :`url(${imgUrl[1]})`,}"></div>
+               
               </div>
               <div class="swiper-pagination "></div>
             </div>
@@ -82,28 +78,15 @@ export default {
     return {
       imgUrl: [
         'img/2_1_1.jpg',
-        'img/2_1_2.jpg',
-        'img/2_1_3.jpg',
         'img/2_2_1.jpg',
-        'img/2_2_2.jpg',
-        'img/2_2_3.jpg',
-        'img/2_3_1.jpg',
-        'img/2_3_2.jpg',
-        'img/2_3_3.jpg',
       ],
     };
   },
-  mounted() {
-    /* eslint-disable no-unused-vars */
+  mounted() {   
     const swiper2 = new Swiper('.swiper-container2', {
       pagination: '.swiper-pagination',
     });
-    /* eslint-disable no-unused-vars */
     const swiper3 = new Swiper('.swiper-container3', {
-      pagination: '.swiper-pagination',
-    });
-    /* eslint-disable no-unused-vars */
-    const swiper4 = new Swiper('.swiper-container4', {
       pagination: '.swiper-pagination',
     });
   },

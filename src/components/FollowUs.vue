@@ -78,7 +78,7 @@ export default {
 #followUs {
   height: 70vh;
   @include BS-xl {
-    height: 30vh;
+    display: none;
   }
 }
 </style>

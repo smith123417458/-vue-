@@ -26,7 +26,7 @@
           </div>
         </card>
         <card data-image="img/302.jpg"
-          v-scroll-reveal="{origin: 'right'}"
+          v-scroll-reveal="{origin: 'left'}"
         >
           <h3 slot="header" class="h2">好運機車</h3>
           <p slot="content" class="ml-4 mb-4">--優質可靠輕經行遍全台</p>

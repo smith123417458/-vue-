@@ -23,7 +23,7 @@
       
       </router-link>
 
-
+     <h5><i class="far fa-hand-point-up fa-5x"></i></h5>
     </div>
   </section>
 </template>
@@ -33,7 +33,7 @@
 #intro {
   height: 80vh;
   @include BS-xl {
-    height: 40vh;
+    height: 60vh;
   }
 }
 section{
@@ -49,6 +49,9 @@ h4,p{
      color: chartreuse;
    }
  }
+ h5{
+  color: deeppink;
+}
 .typing {
       width: 15em;
       white-space: nowrap;

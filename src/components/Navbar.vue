@@ -1,6 +1,4 @@
 <template>
-
-
   <nav
     class="navbar navbar-expand-xl p-0 fixed-top navDefault"
     :class="{ navActive }"
@@ -27,7 +25,7 @@
             href="#"
             @mouseenter="brandMouseEnter"
             @mouseleave="brandMouseLeave"
-            @click="changeCategory('car')"
+            @click="changeCategory('car')"   
           >
             <span class="align-middle">車款選擇</span>
           </a>
@@ -40,7 +38,8 @@
     <ul class="navbar-nav mr-xl-6 order-1 order-xl-2">
       <li class="nav-item">
         <router-link class="d-none d-xl-block py-3 px-4" to="/signin">
-          <i class="fal fa-user-circle"></i>
+          <!-- <i class="fal fa-user-circle"></i> -->
+          <img src="https://i.imgur.com/yH8yeaP.png" >
         </router-link>
       </li>
       <!-- 購物車按鈕 -->
@@ -112,7 +111,7 @@
                      <img :src="category.url" width="45px"> 
                     </span>
                 </a>
-              </div>aa
+              </div>
             </div>
           </div>
            <a

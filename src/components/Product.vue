@@ -133,7 +133,7 @@ export default {
 .banner{
   background-image:url(https://www.ponyrent.com.tw/images/banner.jpg);  
   max-width: 100%;
-  min-height: 310px;
+  min-height: 250px;
   background-position: center center;
   background-repeat: no-repeat;
   
@@ -142,11 +142,8 @@ export default {
 @media(max-width:500px){
   .banner{
     background: url(https://www.abcar.com.tw/skin/banner.jpg);
-
-    background-size: cover;
-    min-height: 310px;
-    background-position: 50% 50%;
-    max-height: 50vh;
+     background-position: center center;
+    background-repeat: no-repeat;
   }
 }
 .sticky-list {
