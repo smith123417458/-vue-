@@ -39,27 +39,10 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
 export default {
   data() {
     return {
-     
       banners: [
             'https://i.imgur.com/8dyOftZ.jpg',
             'https://i.imgur.com/opvSX7g.jpg',
             'https://i.imgur.com/xq5aU0T.jpg',
-            // 'img/401.jpg',
-            // 'img/402.jpg',
-            // 'img/403.jpg',
-          //   'https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245293E188B7.jpg',
-          //  'https://images.zi.org.tw/incar/2019/06/27052146/1561584105-698381406bd400f3729c84322c86c226.jpg',
-      //  ' https://hotaicdn.azureedge.net/toyotaweb/CMS_2020021111245211220201.jpg',
-        // 'https://hotaicdn.azureedge.net/toyotaweb/BANNER_2019051013273645C4E06D.jpg',
-        // 'https://www.lexus.com.tw/upload/bnr/201911/201911271404300871CF94.jpg',
-          //  ' https://autos.yahoo.com.tw/y/r/w1200/iw/MMT/car/a3544f50dfd9b4ed49fba9b584c836a7_1200.jpg',
-        // 'https://scdn.slashgear.com/wp-content/uploads/2020/01/lamborghini-aventador-svj-roadster-04-1280x720.jpg',
-        // 'https://www.lexus.com.tw/upload/bnr/201911/201911271346423EDM26UD.jpg',
-        // 'https://images.zi.org.tw/incar/2019/06/25004224/1561394543-559c900da5ac650ef192e03cf2390e28.jpg',
-        // 'https://hotaicdn.azureedge.net/toyotaweb/BANNER_201907301648331L6QQ6O2.jpg',
-        // 'https://tcar.tv/public/upimgs/carnews/Lamborghini/Press/2020/202001/6/SMALL_554586.jpg',
-      //  ' https://autos.yahoo.com.tw/y/r/w1200/iw/MMT/car/f18e5e021173ed7441981402bd86219c_1200.jpg'
-          
       ],
       swiperOption: {
         loop: true,
@@ -76,7 +59,6 @@ export default {
     swiper,
     swiperSlide,
   },
-
 };
 </script>
 <style lang="scss" scoped>
@@ -171,7 +153,4 @@ h1 {
    }
 
  }
-
-
-
 </style>

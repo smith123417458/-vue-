@@ -14,7 +14,8 @@
       <ul class="navbar-nav"> 
         <li class="nav-item">
           <a class="nav-link p-3 px-4" href="#" @click.prevent="goNewArrival">
-            <span class="hvr-underline-from-left">新品上市</span>
+            <!-- <span class="hvr-underline-from-left">首頁</span> -->
+            <img src="https://i.imgur.com/YPDwhnV.png" >
           </a>
         </li> 
         <!-- 瀏覽器下車款選擇 -->
@@ -71,7 +72,9 @@
               <div class="col-2">
                 <h2 class="h4 text-center font-weight-bold m-0">car</h2>
                 <router-link class="d-block text-center" to="/product">
+                  <span class="hvr-pulse-shrink">  
                   <img  class src="img/304.png" width="100" />
+                  </span>
                 </router-link>
               </div>
               <div class="col-5 d-flex align-items-center">
@@ -82,7 +85,7 @@
                   :key="ind+'3'"
                   @click.prevent="changeCategory(category.name)"
                 >
-                  <span class="hvr-underline-reveal">                 
+                  <span class="hvr-buzz">                 
                     <img :src="category.url" width="45px">
                   </span>
                 </a>
@@ -92,10 +95,12 @@
               <div class="col-2">
                 <h2 class="h4 text-center font-weight-bold m-0">motorbike</h2>
                 <a class="d-block text-center" href="#" @click="changeCategory('motorbike')">
+                  <span class="hvr-pulse-shrink">
                   <img
                     src="img/305.png"
                     width="100"
                   />
+                  </span>
                 </a>
               </div>
               <div class="col-5 d-flex align-items-center">
@@ -106,7 +111,7 @@
                   :key="inde+'4'"
                   @click.prevent="changeCategory(category.name)"
                 >
-                  <span class="hvr-underline-reveal">
+                  <span class="hvr-buzz">
                   
                      <img :src="category.url" width="45px"> 
                     </span>
@@ -130,7 +135,9 @@
         </div>       
          <div class="row w-100 justify-content-center">
           <div class="col-1">
+           <span class="hvr-pulse-shrink">
          <img src="https://i.imgur.com/vbkAgWd.png" > 
+         </span>
           </div>
         </div> 
       </div>
@@ -298,19 +305,19 @@ export default {
 #brand-list-rwd {
   display: none;
 }
-// Hover.css
-.hvr-underline-from-left:before {
-  background: gray;
-}
-li:hover {
-  .hvr-underline-from-left:before {
-    right: 0;
-  }
-}
+// Hover.css 這是套件,packjson看的到
+// .hvr-underline-from-left:before {
+//   background: gray;
+// }
+// li:hover {
+//   .hvr-underline-from-left:before {
+//     right: 0;
+//   }
+// }
 
-#brand-list a:hover {
-  .hvr-underline-reveal:before {
-    transform: translateY(0);
-  }
-}
+// #brand-list a:hover {
+//   .hvr-underline-reveal:before {
+//     transform: translateY(0);
+//   }
+// }
 </style>

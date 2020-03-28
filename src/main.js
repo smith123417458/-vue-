@@ -106,10 +106,8 @@ router.beforeEach((to, from, next) => {
     // 需改成 axios。this.$http 是元件才有的方法
     axios.post(api).then((response) => {
       if (response.data.success) {
-        // 如果成功則進入下一頁
         next();
       } else {
-        // 否則轉回 login
         next({
           path: '/login',
         });
