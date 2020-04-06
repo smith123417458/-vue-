@@ -40,6 +40,18 @@
           <button type="button" class="btn btn-outline-dark" @click="addToCart(product.id,$event)">
             加入購物車
           </button>
+        <!-- ========================================================================================= -->
+         <a href="#" class="btn btn-link p-0" :class="{'d-none': isFavorite}"
+           @click.prevent="addFavorite(product)">
+                <i class="fas fa-heart"></i> 收藏商品
+              </a>
+              <a href="#" class="btn btn-link p-0" :class="{'d-none': !isFavorite}"
+               @click.prevent="removeFavorite(product, false)">
+                <i class="fas fa-heart-broken"></i> 取消收藏
+              </a>
+
+
+
            <div class="buybox" v-if='currentcar' :style="{backgroundImage: `url(${product.imageUrl})`}"></div>
          
         </div>
@@ -49,6 +61,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { gsap } from "gsap";
 export default {
   data() {
@@ -56,8 +69,14 @@ export default {
       product: {},
       qty: 1,
       currentcar:null,
+      isFavorite: false,
     };
   },
+
+computed: {
+    ...mapGetters('favoriteModules', ['favorites']),
+  },
+
   methods: {
     // 取得單一產品細節
     getProduct() {
@@ -68,7 +87,34 @@ export default {
         vm.product = response.data.product;
         vm.$store.dispatch('updateLoading', false);
       });
+
+
+       vm.favorites.forEach((item) => {
+            if (vm.product.id === item.id) {
+              vm.isFavorite = true;
+            }
+       });
+
+
+
+
     },
+
+    addFavorite(product) {
+      this.$store.dispatch('favoriteModules/addToFavorite', product);
+      this.isFavorite = true;
+    },
+    removeFavorite(productItem, delall) {
+      this.$store.dispatch('favoriteModules/removeFavorite', { favoriteItem: productItem, delall });
+      this.isFavorite = false;
+    },
+
+
+
+
+
+
+
     addToCart(productId ,evt) {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
@@ -94,18 +140,40 @@ export default {
           data: cart,
         })
         .then(() => {
-          // vm.$bus.$emit('sweet-alert', {
-          //   icon: 'success',
-          //   title: '已成功加入購物車',
-          // });
+         
           vm.$store.dispatch('getCarts');
           vm.$store.dispatch('updateLoading', false); 
         });
     },
   },
   created() {
+
+  this.productId = this.$route.params.productId;
+
     this.getProduct();
   },
+
+
+
+  watch: {
+    // 監聽 Layout.vue 我的最愛選單 當路由改變，頁面重新渲染
+    $route() {
+      this.productId = this.$route.params.productId;
+      this.getProduct();
+    },
+  },
+
+
+
+
+
+
+
+
+
+
+
+
 };
 </script>
 
@@ -120,8 +188,8 @@ export default {
   position: fixed;
   top:64px;
   right:30px;
-  height: 50px;
-  width: 100px;
+  height: 150px;
+  width: 230px;
   background-size: cover;
   background-position: center center;
   opacity: 0;

@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+
+import favoriteModules from './favorite';
+
 Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
@@ -75,4 +78,12 @@ export default new Vuex.Store({
       context.commit('CHANGECATEGORY', payload);
     },
   },
+
+
+  modules: {
+   
+    favoriteModules,
+  },
+
+
 });

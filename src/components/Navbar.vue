@@ -56,7 +56,102 @@
           </p>
         </router-link>
       </li>
+
+       
+
+        
+         <li class="nav-item">
+          
+         <div class="btn-group favorite">
+          <button type="button" class="btn favorite-btn" data-toggle="dropdown">
+            <i class="fas fa-heart fa-lg"></i>
+            <span class="badge badge-pill badge-danger">{{ favoritesLength }}</span>
+          </button>
+
+
+        <div class="dropdown-menu dropdown-menu-right">
+            <div class="pt-2 px-3">
+              <h5 class="text-center">我的最愛</h5>
+              <table class="table mb-2" style="min-width:200px">
+      
+             <tbody>
+                 
+              <tr class="favorite-list"
+                  v-for="favorite in favorites" :key="favorite.id">
+                    <td class="py-2" width="30">
+                      <a href="#" class="text-danger favorite-list-delbtn"
+                      @click.prevent="removeFavorite(favorite, false)">
+                        <i class="fas fa-times"></i>
+                      </a>
+                    </td>
+                    <td class="py-2">
+                      <router-link :to="`/productslist/${favorite.id}`" class="d-block">
+                        {{ favorite.title }}
+                      </router-link>
+                    </td>
+                  </tr>
+                  <tr :class="{'d-none': favorites.length}">
+                    <td class="text-center">我的最愛是空的</td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+             <button class="btn btn-outline-danger btn-block"
+               :class="{'d-none': !favorites.length}"
+               data-toggle="modal" data-target="#delFavoriteModal">
+                刪除全部
+              </button>
+
+
+              
+            </div>
+          </div>
+        </div>
+        </li>
+      
+          
+
+
+
     </ul>
+
+    <div class="modal fade" id="delFavoriteModal" tabindex="-1" role="dialog"
+     aria-labelledby="delFavoriteModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-light">
+            <h5 class="modal-title" id="delFavoriteModalLabel">刪除 全部我的最愛</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            是否<strong class="text-danger">刪除 全部我的最愛</strong> (刪除後將無法回復)
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+             @click.prevent="removeFavorite('', true)">
+              確認刪除
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- 代理品牌清單 -->
     <div
       id="brand-list"
@@ -149,6 +244,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import { gsap } from "gsap";
 export default {
   data() {
@@ -160,7 +256,9 @@ export default {
   computed:{
     getcar(){
       return this.$store.state.carts.carts.length
-    }
+    },
+  ...mapGetters('favoriteModules', ['favorites', 'favoritesLength']),
+
   }
    ,
   watch: {
@@ -262,10 +360,31 @@ export default {
       
       });
     },
+
+    removeFavorite(favorite, delall) {
+      this.$store.dispatch('favoriteModules/removeFavorite', { favoriteItem: favorite, delall });
+    },
+    ...mapActions('favoriteModules', ['getFavorite']),
+
+
+
+
+
+
+
+
+
+
+
+
+
   },
   created() {
     window.addEventListener('scroll', this.windowScroll, false);
     this.$store.dispatch('getCarts');
+    this.$store.dispatch('favoriteModules/getFavorite');
+
+
   },  
 };
 </script>
@@ -295,7 +414,7 @@ export default {
 
 
 #brand-list {
-  display: none; // 預設隱藏
+  display: none; 
   
   @include BS-xl {
     display: none;
@@ -305,19 +424,42 @@ export default {
 #brand-list-rwd {
   display: none;
 }
-// Hover.css 這是套件,packjson看的到
-// .hvr-underline-from-left:before {
-//   background: gray;
-// }
-// li:hover {
-//   .hvr-underline-from-left:before {
-//     right: 0;
-//   }
-// }
 
-// #brand-list a:hover {
-//   .hvr-underline-reveal:before {
-//     transform: translateY(0);
-//   }
-// }
+
+
+// ================================================================================
+.dropdown-menu {
+  z-index: 9999;
+}
+
+ .favorite {
+  float: right;
+  margin-left: 0.25rem;
+}
+
+ .favorite-btn {
+  float: right;
+  position: relative;
+  background-color: transparent;
+  text-align: right;
+  font-size: inherit;
+  .badge {
+    position: absolute;
+    top: auto;
+    bottom: 2px;
+    right: -1px;
+  }
+}
+.favorite-list {
+  &:hover, &:active {
+    background-color: red;
+    text-decoration: underline;
+  }
+  .favorite-list-delbtn:hover, .favorite-list-delbtn:active {
+    i {
+      font-size: 1.25rem;
+    }
+  }
+}
+
 </style>
