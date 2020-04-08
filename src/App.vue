@@ -1,19 +1,27 @@
 <template>
   <div id="app">
-    <!-- 過場特效 -->
-    <!-- <loading :active.sync="isLoading"></loading> -->
+
+    <loading :active.sync="isLoading" :is-full-page="true">
+       <template slot="default">
+        <img src="https://i.imgur.com/i7yDFf6.png" class="w-50">
+      </template>
+      <template slot="after">
+        <img src="https://i.imgur.com/wnfn9XN.gif">
+      </template>
+      
+      </loading> 
     <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  // computed: {
-  //   // 過場特效
-  //   isLoading() {
-  //     return this.$store.state.isLoading;
-  //   },
-  // },
+  computed: {
+   
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
+  },
   /**
             全域註冊 Event bus 
     1. Sweet alert 事件，參數為 icon (成功或失敗)、title (顯示的文字訊息)

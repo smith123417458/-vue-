@@ -46,7 +46,7 @@ import './assets/main.scss';
 Vue.use(VueAxios, axios);
 window.axios = axios;
 window.$ = $;
-// 過場特效
+
 Vue.component('Loading', Loading);
 
 // 全域啟用 filters
@@ -58,7 +58,7 @@ Vue.use(VueSweetalert2);
 
 
 Vue.use(VueScrollReveal, {
-  class: 'v-scroll-reveal', // A CSS class applied to elements with the v-scroll-reveal directive; useful for animation overrides.
+  class: 'v-scroll-reveal', 
   duration: 2000, 
   reset: false,
   // origin: 'left', // top right bottom left
