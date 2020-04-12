@@ -100,10 +100,9 @@ Vue.use(VeeValidate, {
 });
 
 router.beforeEach((to, from, next) => {
-  // 如果進入的畫面需要驗證，則執行 check 這個 API 程式
+
   if (to.meta.requiresAuth) {
-    const api = `${process.env.APIPATH}/api/user/check`;
-    // 需改成 axios。this.$http 是元件才有的方法
+     const api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
     axios.post(api).then((response) => {
       if (response.data.success) {
         next();

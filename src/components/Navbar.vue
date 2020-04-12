@@ -133,7 +133,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
-             @click.prevent="removeFavorite('', true)">
+             @click.prevent="removeFavorite('favorites', true)">
               確認刪除
             </button>
           </div>

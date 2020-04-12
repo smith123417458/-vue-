@@ -82,10 +82,10 @@ computed: {
     getProduct() {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${this.$route.params.productId}`;
-      vm.$store.dispatch('updateLoading', true);
+      // vm.$store.dispatch('updateLoading', true);
       axios.get(apiUrl).then((response) => {
         vm.product = response.data.product;
-        vm.$store.dispatch('updateLoading', false);
+        // vm.$store.dispatch('updateLoading', false);
       });
 
 
@@ -134,15 +134,11 @@ computed: {
 
         })
 
-      vm.$store.dispatch('updateLoading', true);
-      axios
-        .post(apiUrl, {
-          data: cart,
-        })
+      // vm.$store.dispatch('updateLoading', true);
+      axios.post(apiUrl, { data: cart,})
         .then(() => {
-         
           vm.$store.dispatch('getCarts');
-          vm.$store.dispatch('updateLoading', false); 
+          // vm.$store.dispatch('updateLoading', false); 
         });
     },
   },
@@ -158,7 +154,7 @@ computed: {
   watch: {
     // 監聽 Layout.vue 我的最愛選單 當路由改變，頁面重新渲染
     $route() {
-      this.productId = this.$route.params.productId;
+     this.productId = this.$route.params.productId;
       this.getProduct();
     },
   },

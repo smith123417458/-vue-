@@ -22,7 +22,7 @@
                class="btn category-btn d-md-flex justify-content-center align-items-center p-3" 
               :class="{'active': nowCategory === category}"
               v-for="category in this.$store.state.brands.car"
-              :key="category"
+              :key="category.id"
               @click.prevent="changeCategory(category.name)"
             > <img :src="category.url" width="25px">
             
@@ -40,7 +40,7 @@
               class="btn category-btn d-md-flex justify-content-center align-items-center p-3" 
               :class="{'active': nowCategory === category}"
               v-for="category in this.$store.state.brands.motorbike"
-              :key="category"
+              :key="category.id"
               @click.prevent="changeCategory(category.name)"
             > <img :src="category.url" width="25px">
             
@@ -84,29 +84,14 @@ export default {
     };
   },
   methods: {
-    // 取得所有產品資訊
     getAllProducts() {
       this.$store.dispatch('getAllProducts');
     },
     changeCategory(selectedCategory) {
       this.$store.dispatch('changeCategory', selectedCategory);
     },
-    getCouponCode() {
-      const vm = this;
-      const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=1`;
-
-      vm.$store.dispatch('updateLoading', true);
-      axios.get(apiUrl).then((response) => {
-        vm.coupon = response.data.coupons;
-        vm.$store.dispatch('updateLoading', false);
-      });
-    },
-    showCoupon() {
-      this.$bus.$emit('sweet-alert-info', {
-        icon: 'info',
-        title: '複製優惠碼: V-Headphone',
-      });
-    },
+   
+    
   },
   computed: {
     allProducts() {
