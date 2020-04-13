@@ -1,20 +1,19 @@
 <template>
   <div class="position-relative">
-  
-    <swiper
-      id="swiper"
-      :options="swiperOption"
-    >
-      <swiper-slide
-        v-for="banner in banners"
-        :key="banner"
-      >
-        <img 
-        class 
-        :src="banner"
-        />
-      </swiper-slide>
-    </swiper>
+
+
+ <div class="banner">
+      <div class="clouds">    
+       <img src="../assets/img/cloud1.png" style="--i:1;">
+       <img src="../assets/img/cloud2.png" style="--i:2;">
+       <img src="../assets/img/cloud3.png" style="--i:3;">
+       <img src="../assets/img/cloud4.png" style="--i:4;">
+       <img src="../assets/img/cloud5.png" style="--i:5;">   
+      </div>
+
+</div>
+
+
     <div class="swiper-intro p-2  d-sm-block position-absolute">
 
       <div class='bglay p-3'>
@@ -33,32 +32,14 @@
 </template>
 
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
- import '../../node_modules/swiper/css/swiper.css';
 
 export default {
   data() {
     return {
-      banners: [
-            'https://i.imgur.com/8dyOftZ.jpg',
-            'https://i.imgur.com/opvSX7g.jpg',
-            'https://i.imgur.com/xq5aU0T.jpg',
-      ],
-      swiperOption: {
-        loop: true,
-        speed: 1500,
-        //autoplay為swiper3升級到swiper4格式寫法
-        autoplay:{
-          stopOnLastSlide:true,
-        } ,
-        autoplayDisableOnInteraction: false,
-      },
+     
     };
   },
-  components: {
-    swiper,
-    swiperSlide,
-  },
+ 
 };
 </script>
 <style lang="scss" scoped>
@@ -153,4 +134,46 @@ h1 {
    }
 
  }
+// =====================================================
+.banner{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background:url(../assets/img/401.jpg);
+  background-size: cover;
+  background-position: bottom;
+   @include BS-xl {
+      height: 50vh;
+    }
+}
+.section{
+  position: relative;
+  padding:75px 100px;
+}
+.banner .clouds{
+  position: absolute;
+  top: 0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+.banner .clouds img{
+  position:absolute;
+  bottom:0;
+  max-width: 100%;
+  animation: animate calc(8s * var(--i))  linear infinite;
+
+}
+
+@keyframes animate{
+0%{
+  transform: translateX(-100%);
+}
+100%{
+  transform: translateX(100%);
+}
+}
+
+
 </style>

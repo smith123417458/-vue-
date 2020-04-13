@@ -2,7 +2,7 @@
   <section
     id="intro"
     class="d-flex justify-content-center align-items-center text-center my-5"
-     v-scroll-reveal="{origin: 'bottom'}"
+    
   >
     <div class="p-1" >
       <h4 class="h4 typing mb-4">
