@@ -1,23 +1,30 @@
 <template>
+
+<div>
+
   <nav
     class="navbar navbar-expand-xl p-0 fixed-top navDefault"
     :class="{ navActive }"
-     @mouseenter="navMouseEnter"
-     @mouseleave="navMouseLeave"
+    @mouseenter="navMouseEnter"
+    @mouseleave="navMouseLeave"
   >
- <a class="navbar-brand" href="#">
-    <img src="https://i.imgur.com/YXX7oS3.png" width="30" height="30" 
-    class="d-inline-block align-top ml-4" >
-    好運租車
-  </a>
-     <div class="collapse navbar-collapse ml-xl-6 order-2 order-xl-1" >
-      <ul class="navbar-nav"> 
+    <a class="navbar-brand" href="#">
+      <img
+        src="../assets/img/r02.png"
+        width="30"
+        height="30"
+        class="d-inline-block align-top ml-4"
+      />
+      好運租車
+    </a>
+    <div class="collapse navbar-collapse ml-xl-6 order-2 order-xl-1">
+      <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link p-3 px-4" href="#" @click.prevent="goNewArrival">
             <!-- <span class="hvr-underline-from-left">首頁</span> -->
-            <img src="https://i.imgur.com/YPDwhnV.png" >
+            <img src="../assets/img/homepage.png" />
           </a>
-        </li> 
+        </li>
         <!-- 瀏覽器下車款選擇 -->
         <li class="nav-item d-none d-xl-block">
           <a
@@ -26,13 +33,11 @@
             href="#"
             @mouseenter="brandMouseEnter"
             @mouseleave="brandMouseLeave"
-            @click="changeCategory('car')"   
+            @click="changeCategory('car')"
           >
             <span class="align-middle">車款選擇</span>
           </a>
         </li>
-
-       
       </ul>
     </div>
     <!-- 會員登入 -->
@@ -40,7 +45,7 @@
       <li class="nav-item">
         <router-link class="d-none d-xl-block py-3 px-4" to="/signin">
           <!-- <i class="fal fa-user-circle"></i> -->
-          <img src="https://i.imgur.com/yH8yeaP.png" >
+          <img src="../assets/img/log-in.png" />
         </router-link>
       </li>
       <!-- 購物車按鈕 -->
@@ -51,106 +56,58 @@
             class="position-absolute text-center text-white bg-danger rounded-circle"
             style="top:10%; right:25%; font-size: 12px; min-width: 17px"
             v-if="this.$store.state.carts.carts.length"
-          >
-            {{ this.$store.state.carts.carts.length }}
-          </p>
+          >{{ this.$store.state.carts.carts.length }}</p>
         </router-link>
       </li>
 
-       
-
-        
-         <li class="nav-item">
-          
-         <div class="btn-group favorite">
+      <li class="nav-item">
+        <div class="btn-group favorite d-none d-xl-block">
           <button type="button" class="btn favorite-btn" data-toggle="dropdown">
-            <i class="fas fa-heart fa-lg"></i>
-            <span class="badge badge-pill badge-danger">{{ favoritesLength }}</span>
+            <!-- <i class="fas fa-heart fa-lg"></i> -->
+            <img src="../assets/img/heart.png" />
+            <span class="badge badge-pill badge-success">{{ favoritesLength }}</span>
           </button>
-
-
-        <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-menu dropdown-menu-right">
             <div class="pt-2 px-3">
               <h5 class="text-center">我的最愛</h5>
               <table class="table mb-2" style="min-width:200px">
-      
-             <tbody>
-                 
-              <tr class="favorite-list"
-                  v-for="favorite in favorites" :key="favorite.id">
+                <tbody>
+                  <tr class="favorite-list" v-for="favorite in favorites" :key="favorite.id">
                     <td class="py-2" width="30">
-                      <a href="#" class="text-danger favorite-list-delbtn"
-                      @click.prevent="removeFavorite(favorite, false)">
+                      <a
+                        href="#"
+                        class="text-danger favorite-list-delbtn"
+                        @click.prevent="removeFavorite(favorite, false)"
+                      >
                         <i class="fas fa-times"></i>
                       </a>
                     </td>
                     <td class="py-2">
-                      <router-link :to="`/productslist/${favorite.id}`" class="d-block">
-                        {{ favorite.title }}
-                      </router-link>
+                      <router-link
+                        :to="`/productslist/${favorite.id}`"
+                        class="d-block"
+                      >{{ favorite.title }}</router-link>
                     </td>
                   </tr>
                   <tr :class="{'d-none': favorites.length}">
                     <td class="text-center">我的最愛是空的</td>
                   </tr>
-
-
                 </tbody>
               </table>
 
-             <button class="btn btn-outline-danger btn-block"
-               :class="{'d-none': !favorites.length}"
-               data-toggle="modal" data-target="#delFavoriteModal">
-                刪除全部
-              </button>
-
-
-              
+              <button
+                class="btn btn-outline-danger btn-block"
+                :class="{'d-none': !favorites.length}"
+                data-toggle="modal"
+                data-target="#delFavoriteModal"
+              >刪除全部</button>
             </div>
           </div>
         </div>
-        </li>
-      
-          
-
-
-
+      </li>
     </ul>
 
-    <div class="modal fade" id="delFavoriteModal" tabindex="-1" role="dialog"
-     aria-labelledby="delFavoriteModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header bg-danger text-light">
-            <h5 class="modal-title" id="delFavoriteModalLabel">刪除 全部我的最愛</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            是否<strong class="text-danger">刪除 全部我的最愛</strong> (刪除後將無法回復)
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
-             @click.prevent="removeFavorite('favorites', true)">
-              確認刪除
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
+    
 
     <!-- 代理品牌清單 -->
     <div
@@ -167,8 +124,8 @@
               <div class="col-2">
                 <h2 class="h4 text-center font-weight-bold m-0">car</h2>
                 <router-link class="d-block text-center" to="/product">
-                  <span class="hvr-pulse-shrink">  
-                  <img  class src="img/304.png" width="100" />
+                  <span class="hvr-pulse-shrink">
+                    <img class src="img/304.png" width="100" />
                   </span>
                 </router-link>
               </div>
@@ -180,8 +137,8 @@
                   :key="ind+'3'"
                   @click.prevent="changeCategory(category.name)"
                 >
-                  <span class="hvr-buzz">                 
-                    <img :src="category.url" width="45px">
+                  <span class="hvr-buzz">
+                    <img :src="category.url" width="45px" />
                   </span>
                 </a>
               </div>
@@ -191,10 +148,7 @@
                 <h2 class="h4 text-center font-weight-bold m-0">motorbike</h2>
                 <a class="d-block text-center" href="#" @click="changeCategory('motorbike')">
                   <span class="hvr-pulse-shrink">
-                  <img
-                    src="img/305.png"
-                    width="100"
-                  />
+                    <img src="img/305.png" width="100" />
                   </span>
                 </a>
               </div>
@@ -207,60 +161,93 @@
                   @click.prevent="changeCategory(category.name)"
                 >
                   <span class="hvr-buzz">
-                  
-                     <img :src="category.url" width="45px"> 
-                    </span>
+                    <img :src="category.url" width="45px" />
+                  </span>
                 </a>
               </div>
             </div>
           </div>
-           <a
+          <a
             class="col-5"
             style="background: url(img/303.jpg); background-size: cover; background-position: center center;"
             href="#"
             @click.prevent="changeCategory('car')"
-          > 
-            <p
-              class="h1 text-white mt-2"
-              style=" text-shadow: 2px 2px 8px black"
-            >
-             好運租車
-            </p>  
+          >
+            <p class="h1 text-white mt-2" style=" text-shadow: 2px 2px 8px black">好運租車</p>
           </a>
-        </div>       
-         <div class="row w-100 justify-content-center">
+        </div>
+        <div class="row w-100 justify-content-center">
           <div class="col-1">
-           <span class="hvr-pulse-shrink">
-         <img src="https://i.imgur.com/vbkAgWd.png" > 
-         </span>
+            <span class="hvr-pulse-shrink">
+              <img src="https://i.imgur.com/vbkAgWd.png" />
+            </span>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
 
-    
+
+
+
+
+
   </nav>
+
+
+   <div class="modal fade" id="delFavoriteModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-light">
+            <h5 class="modal-title" id="delFavoriteModalLabel">刪除 全部我的最愛</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            是否
+            <strong class="text-danger">刪除 全部我的最愛</strong> (刪除後將無法回復)
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              data-dismiss="modal"
+              @click.prevent="removeFavorite('favorites', true)"
+            >確認刪除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
 
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 import { gsap } from "gsap";
 export default {
   data() {
-    return {  
+    return {
       navHeight: 0,
-      navActive: false,
+      navActive: false
     };
   },
-  computed:{
-    getcar(){
-      return this.$store.state.carts.carts.length
+  computed: {
+    getcar() {
+      return this.$store.state.carts.carts.length;
     },
-  ...mapGetters('favoriteModules', ['favorites', 'favoritesLength']),
-
-  }
-   ,
+    ...mapGetters("favoriteModules", ["favorites", "favoritesLength"])
+  },
   watch: {
     /** 監聽路由切換 navbar 樣式。 * */
     $route() {
@@ -268,62 +255,61 @@ export default {
       const { path } = this.$route;
       // 當路由發生變動時，將畫面滾動至頂部，但若是回首頁則不需要
       // * 也可以使用 router 的 scrollBehavior 方法
-      if (path !== '/') {
-         vm.$bus.$emit('goTop');
+      if (path !== "/") {
+        vm.$bus.$emit("goTop");
       }
       // 將 navbar 的 menu 關閉
-       $('.navbar-collapse').collapse('hide');
-      $('#brand-list').slideUp();
+      $(".navbar-collapse").collapse("hide");
+      $("#brand-list").slideUp();
 
       // 判斷當前頁面路徑，調整 navbar 的 樣式
-      if (path !== '/' && path !== '/product') {
+      if (path !== "/" && path !== "/product") {
         vm.navActive = true;
       } else {
         vm.navActive = false;
       }
     },
 
-  getcar(){
-    gsap.from(".fa-shopping-cart", 0.1, {
-          scale: 8
-        })
-  }
+    getcar() {
+      gsap.from(".fa-shopping-cart", 0.1, {
+        scale: 8
+      });
+    }
   },
   methods: {
     // 視窗滾動或是改變路由則切換 navbar 樣式
     windowScroll() {
       const vm = this;
-      const navTopHeight = Math.floor($('nav').offset().top);
+      const navTopHeight = Math.floor($("nav").offset().top);
       vm.navHeight = navTopHeight;
       const { path } = this.$route;
       // 當 navbar 距離 top 的距離大於 0 或等於 0 時，改變樣式
       if (vm.navHeight > 0) {
         vm.navActive = true;
         // 只有在 /# 與 /product 路由，滾動至最上層會有背景透明樣式
-      } else if (vm.navHeight === 0 && (path === '/product' || path === '/')) {
+      } else if (vm.navHeight === 0 && (path === "/product" || path === "/")) {
         vm.navActive = false;
-      
       }
     },
-     navMouseEnter() {
+    navMouseEnter() {
       this.navActive = true;
     },
     navMouseLeave() {
-      const navTopHeight = Math.floor($('nav').offset().top);
+      const navTopHeight = Math.floor($("nav").offset().top);
       const { path } = this.$route;
-      if (navTopHeight === 0 && (path === '/product' || path === '/')) {
+      if (navTopHeight === 0 && (path === "/product" || path === "/")) {
         this.navActive = false;
       }
     },
 
     // navbar 代理品牌的 hover 事件
     brandMouseEnter() {
-      $('#brand-list')
+      $("#brand-list")
         .stop()
         .slideDown(500);
     },
     brandMouseLeave() {
-      $('#brand-list')
+      $("#brand-list")
         .stop()
         .slideUp(300);
     },
@@ -331,61 +317,48 @@ export default {
     goNewArrival() {
       const vm = this;
       // 點擊新品上市，滾動至錨點
-      return vm.$route.path === '/'
-        ? vm.scrollToAnchor('#new-arrival')
-        : vm.$router.push('/').then(() => {
-          vm.scrollToAnchor('#new-arrival');
-        });
+      return vm.$route.path === "/"
+        ? vm.scrollToAnchor("#new-arrival")
+        : vm.$router.push("/").then(() => {
+            vm.scrollToAnchor("#new-arrival");
+          });
     },
     scrollToAnchor(anchor) {
-      $('html, body')
+      $("html, body")
         .stop()
         .animate(
           {
-            scrollTop: $(anchor).offset().top,
+            scrollTop: $(anchor).offset().top
           },
-          1000,
+          1000
         );
     },
     // 決定 /product 顯示哪個產品分類
     changeCategory(selectedCategory) {
       const vm = this;
-      vm.$store.dispatch('changeCategory', selectedCategory).then(() => {
+      vm.$store.dispatch("changeCategory", selectedCategory).then(() => {
         // 當前若不是 /product 路由，則轉址
-        if (vm.$route.path !== '/product') {
-          vm.$router.push('/product');
+        if (vm.$route.path !== "/product") {
+          vm.$router.push("/product");
         }
         // 轉址後須將 menu 關閉
-        $('.navbar-collapse').collapse('hide');
-      
+        $(".navbar-collapse").collapse("hide");
       });
     },
 
     removeFavorite(favorite, delall) {
-      this.$store.dispatch('favoriteModules/removeFavorite', { favoriteItem: favorite, delall });
+      this.$store.dispatch("favoriteModules/removeFavorite", {
+        favoriteItem: favorite,
+        delall
+      });
     },
-    ...mapActions('favoriteModules', ['getFavorite']),
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ...mapActions("favoriteModules", ["getFavorite"])
   },
   created() {
-    window.addEventListener('scroll', this.windowScroll, false);
-    this.$store.dispatch('getCarts');
-    this.$store.dispatch('favoriteModules/getFavorite');
-
-
-  },  
+    window.addEventListener("scroll", this.windowScroll, false);
+    this.$store.dispatch("getCarts");
+    this.$store.dispatch("favoriteModules/getFavorite");
+  }
 };
 </script>
 
@@ -398,11 +371,10 @@ export default {
   .navbar-nav a {
     color: white;
   }
-  
   transition: all 0.5s;
 }
 
-// 當畫面滾動、或在非 /#、/product 路由時加入的黑字白底
+// 當畫面滾動、或在非首頁、/product 路由時為黑字白底
 .navActive {
   a,
   .nav-item a {
@@ -412,10 +384,9 @@ export default {
   @include box-shadow;
 }
 
-
 #brand-list {
-  display: none; 
-  
+  display: none;
+
   @include BS-xl {
     display: none;
   }
@@ -425,19 +396,17 @@ export default {
   display: none;
 }
 
-
-
 // ================================================================================
 .dropdown-menu {
   z-index: 9999;
 }
 
- .favorite {
+.favorite {
   float: right;
   margin-left: 0.25rem;
 }
 
- .favorite-btn {
+.favorite-btn {
   float: right;
   position: relative;
   background-color: transparent;
@@ -451,15 +420,16 @@ export default {
   }
 }
 .favorite-list {
-  &:hover, &:active {
-    background-color: red;
+  &:hover,
+  &:active {
+    background-color: rgb(0, 98, 255);
     text-decoration: underline;
   }
-  .favorite-list-delbtn:hover, .favorite-list-delbtn:active {
+  .favorite-list-delbtn:hover,
+  .favorite-list-delbtn:active {
     i {
       font-size: 1.25rem;
     }
   }
 }
-
 </style>

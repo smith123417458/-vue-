@@ -1,7 +1,5 @@
 <template>
   <div class="position-relative">
-
-
  <div class="banner">
       <div class="clouds">    
        <img src="../assets/img/cloud1.png" style="--i:1;">
@@ -111,7 +109,7 @@ h1 {
 
     }
     .typing {
-      width: 9em;
+      width: 10em;
       white-space: nowrap;
       border-right: 2px solid transparent;
       animation: typing 3.5s steps(9, end);

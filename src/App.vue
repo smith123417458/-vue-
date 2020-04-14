@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-
+    
     <loading :active.sync="isLoading" :is-full-page="true">
        <template slot="default">
-        <img src="https://i.imgur.com/i7yDFf6.png" class="w-50">
+         <img src="@/assets/img/r01.png" width="50px"> 
       </template>
       <template slot="after">
-        <img src="https://i.imgur.com/wnfn9XN.gif">
+        <img src="@/assets/img/loading.gif">
       </template>
       
       </loading> 
     <router-view />
   </div>
 </template>
+
 
 <script>
 export default {
