@@ -116,6 +116,11 @@ h1 {
       overflow: hidden;
       letter-spacing: 0;
     }
+    @media (max-width: 470px) {
+    .typing{
+      width: 9em;
+      }
+     }
     @keyframes typing {
       from {
         width: 0;

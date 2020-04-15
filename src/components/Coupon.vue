@@ -176,7 +176,6 @@ export default {
     };
   },
   methods: {
-    // 取得所有優惠券
     getCoupons(page = 1) {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`;
@@ -188,14 +187,12 @@ export default {
         vm.$store.dispatch('updateLoading', false);
       });
     },
-    // 新增優惠券
     createNewCoupon() {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`;
 
       vm.$store.dispatch('updateLoading', true);
 
-      // 修改日期格式
       vm.dueDate = new Date(vm.dueDate).getTime() / 1000;
 
       const newCoupon = {
@@ -238,7 +235,6 @@ export default {
           break;
       }
     },
-    // 修改優惠券
     editCoupon() {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.template.id}`;
@@ -258,7 +254,6 @@ export default {
         vm.$store.dispatch('updateLoading', false);
       });
     },
-    // 刪除優惠券
     deleteCoupon() {
       const vm = this;
       const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.template.id}`;

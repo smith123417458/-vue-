@@ -44,14 +44,13 @@
     <ul class="navbar-nav mr-xl-6 order-1 order-xl-2">
       <li class="nav-item">
         <router-link class="d-none d-xl-block py-3 px-4" to="/signin">
-          <!-- <i class="fal fa-user-circle"></i> -->
           <img src="../assets/img/log-in.png" />
         </router-link>
       </li>
       <!-- 購物車按鈕 -->
       <li class="nav-item">
         <router-link class="position-relative d-block py-3 px-4" to="/cart">
-          <i class="fal fa-shopping-cart"></i>
+          <img id="cart" src="../assets/img/cart.png" >
           <p
             class="position-absolute text-center text-white bg-danger rounded-circle"
             style="top:10%; right:25%; font-size: 12px; min-width: 17px"
@@ -63,7 +62,6 @@
       <li class="nav-item">
         <div class="btn-group favorite d-none d-xl-block">
           <button type="button" class="btn favorite-btn" data-toggle="dropdown">
-            <!-- <i class="fas fa-heart fa-lg"></i> -->
             <img src="../assets/img/heart.png" />
             <span class="badge badge-pill badge-success">{{ favoritesLength }}</span>
           </button>
@@ -109,7 +107,7 @@
 
     
 
-    <!-- 代理品牌清單 -->
+    <!-- 車款選擇 -->
     <div
       id="brand-list"
       class="position-absolute bg-white w-100"
@@ -188,9 +186,6 @@
 
 
 
-
-
-
   </nav>
 
 
@@ -224,12 +219,6 @@
 
   </div>
 
-
-
-
-
-
-
 </template>
 
 <script>
@@ -249,20 +238,16 @@ export default {
     ...mapGetters("favoriteModules", ["favorites", "favoritesLength"])
   },
   watch: {
-    /** 監聽路由切換 navbar 樣式。 * */
     $route() {
       const vm = this;
       const { path } = this.$route;
       // 當路由發生變動時，將畫面滾動至頂部，但若是回首頁則不需要
-      // * 也可以使用 router 的 scrollBehavior 方法
       if (path !== "/") {
         vm.$bus.$emit("goTop");
       }
-      // 將 navbar 的 menu 關閉
-      $(".navbar-collapse").collapse("hide");
+     
       $("#brand-list").slideUp();
 
-      // 判斷當前頁面路徑，調整 navbar 的 樣式
       if (path !== "/" && path !== "/product") {
         vm.navActive = true;
       } else {
@@ -271,22 +256,20 @@ export default {
     },
 
     getcar() {
-      gsap.from(".fa-shopping-cart", 0.1, {
+      gsap.from("#cart", 0.9, {
         scale: 8
       });
     }
+
   },
   methods: {
-    // 視窗滾動或是改變路由則切換 navbar 樣式
     windowScroll() {
       const vm = this;
       const navTopHeight = Math.floor($("nav").offset().top);
       vm.navHeight = navTopHeight;
       const { path } = this.$route;
-      // 當 navbar 距離 top 的距離大於 0 或等於 0 時，改變樣式
       if (vm.navHeight > 0) {
         vm.navActive = true;
-        // 只有在 /# 與 /product 路由，滾動至最上層會有背景透明樣式
       } else if (vm.navHeight === 0 && (path === "/product" || path === "/")) {
         vm.navActive = false;
       }
@@ -302,7 +285,6 @@ export default {
       }
     },
 
-    // navbar 代理品牌的 hover 事件
     brandMouseEnter() {
       $("#brand-list")
         .stop()
@@ -313,36 +295,13 @@ export default {
         .stop()
         .slideUp(300);
     },
-    // 滾動至錨點
-    goNewArrival() {
-      const vm = this;
-      // 點擊新品上市，滾動至錨點
-      return vm.$route.path === "/"
-        ? vm.scrollToAnchor("#new-arrival")
-        : vm.$router.push("/").then(() => {
-            vm.scrollToAnchor("#new-arrival");
-          });
-    },
-    scrollToAnchor(anchor) {
-      $("html, body")
-        .stop()
-        .animate(
-          {
-            scrollTop: $(anchor).offset().top
-          },
-          1000
-        );
-    },
-    // 決定 /product 顯示哪個產品分類
     changeCategory(selectedCategory) {
       const vm = this;
       vm.$store.dispatch("changeCategory", selectedCategory).then(() => {
-        // 當前若不是 /product 路由，則轉址
         if (vm.$route.path !== "/product") {
           vm.$router.push("/product");
         }
-        // 轉址後須將 menu 關閉
-        $(".navbar-collapse").collapse("hide");
+   
       });
     },
 
