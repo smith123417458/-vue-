@@ -2,11 +2,11 @@
   <div class="position-relative">
  <div class="banner">
       <div class="clouds">    
-       <img src="../assets/img/cloud1.png" style="--i:1;">
-       <img src="../assets/img/cloud2.png" style="--i:2;">
-       <img src="../assets/img/cloud3.png" style="--i:3;">
-       <img src="../assets/img/cloud4.png" style="--i:4;">
-       <img src="../assets/img/cloud5.png" style="--i:5;">   
+       <img src="../../assets/img/cloud1.png" style="--i:1;">
+       <img src="../../assets/img/cloud2.png" style="--i:2;">
+       <img src="../../assets/img/cloud3.png" style="--i:3;">
+       <img src="../../assets/img/cloud4.png" style="--i:4;">
+       <img src="../../assets/img/cloud5.png" style="--i:5;">   
       </div>
 
 </div>
@@ -41,7 +41,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../assets/scss/customMixins.scss";
+@import "../../assets/scss/customMixins.scss";
 
 #swiper {
   img {
@@ -142,7 +142,7 @@ h1 {
   position: relative;
   width: 100%;
   height: 100vh;
-  background:url(../assets/img/401.jpg);
+  background:url(../../assets/img/401.jpg);
   background-size: cover;
   background-position: bottom;
    @include BS-xl {

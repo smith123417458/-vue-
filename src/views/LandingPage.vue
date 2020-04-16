@@ -9,8 +9,7 @@
   <Time/>
  <Parallax />
  <News/>
-    <Event />
-     <FollowUs />
+   
   </div>
 
 </template>
@@ -26,15 +25,15 @@ export default {
 
   components: {
 
-      Swiper: () => import('@/components/Swiper'),
+      Swiper: () => import('@/components/front/Swiper'),
 
-      Intro: () => import('@/components/Intro'),
+      Intro: () => import('@/components/front/Intro'),
   
-     Parallax: () => import('@/components/Parallax'),
+     Parallax: () => import('@/components/front/Parallax'),
 
-      News: () => import('@/components/News'),
+      News: () => import('@/components/front/News'),
 
-      Time: () => import('@/components/Time'),
+      Time: () => import('@/components/front/Time'),
 
    
    

@@ -29,7 +29,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/scss/customMixins.scss";
+@import "../../assets/scss/customMixins.scss";
 #intro {
   height: 80vh;
   @include BS-xl {

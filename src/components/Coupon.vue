@@ -214,11 +214,6 @@ export default {
       const vm = this;
       vm.template = Object.assign({}, item);
 
-      /**
-       * ! 使用 eslint 時，不能在 case、default 宣告變數，原因是即使在不同 case 或 default 宣告變數，變數都是可見的
-       * ! 所以必須加入 {} 來表示不同作用域
-       * * 詳 https://cn.eslint.org/docs/rules/no-case-declarations、https://tinyurl.com/v3bnzox
-       */
       switch (isDoing) {
         case 'edit': {
           // 修改日期格式

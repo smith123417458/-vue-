@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
- @import "../assets/scss/customMixins.scss";
+ @import "../../assets/scss/customMixins.scss";
 
 // 視差背景圖
 #parallax {

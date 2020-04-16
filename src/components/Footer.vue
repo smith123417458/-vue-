@@ -24,19 +24,19 @@
         </div>
      <div class="col-2 d-none d-md-block">
           <h4 class="h6 mb-4">接送服務</h4>
-          <ul class="navbar-nav">
+          <!-- <ul class="navbar-nav">
             <li class="nav-item py-1">
               <router-link class="text-light hvr-underline-reveal" to="/parallel_import">訂單提交</router-link>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="col-2 d-none d-md-block">
           <h4 class="h6 mb-1 mb-lg-4">租車優惠</h4>
-          <ul class="navbar-nav">
+          <!-- <ul class="navbar-nav">
             <li class="nav-item py-1">
               <router-link class="text-light hvr-underline-reveal" to="/warranty">注意事項</router-link>
             </li>
-          </ul>
+          </ul> -->
         </div>
 
         <div class="col-md-3 d-md-block">

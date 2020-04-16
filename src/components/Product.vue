@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row">
         <!-- 左方產品分類 -->
-        <div class="col-lg-3">
+        <div class="col-lg-3  margetop">
           <!-- <div class="list-group sticky-top mb-5"> -->
           <div class="d-flex d-lg-block flex-wrap justify-content-between sticky-list">
             <a
@@ -15,7 +15,7 @@
               :class="{'active': nowCategory === 'car'}"
               @click.prevent="changeCategory('car')"
             >
-             <img src="https://i.imgur.com/6UqaDxo.png" width="25px"  >   
+             <img src="../assets/img/car.png" width="25px"  >   
             </a>
             <a
               href="#"
@@ -33,7 +33,7 @@
               :class="{'active': nowCategory === 'motorbike'}"
               @click.prevent="changeCategory('motorbike')"
             >
-              <img src="https://i.imgur.com/yxQKA0t.png" width="37px"  >   
+              <img src="../assets/img/motorcycle.png" width="37px"  >   
             </a>
             <a
               href="#"
@@ -116,7 +116,7 @@ export default {
 <style lang="scss" scoped>
 
 .banner{
-  background-image:url(https://www.ponyrent.com.tw/images/banner.jpg);  
+  background-image:url(../assets/img/banner.jpg);  
   max-width: 100%;
   min-height: 250px;
   background-position: center center;
@@ -124,13 +124,28 @@ export default {
   
 }
 
-@media(max-width:500px){
+@media(max-width:700px){
   .banner{
-    background: url(https://www.abcar.com.tw/skin/banner.jpg);
+    background: url(../assets/img/banner2.jpg);
      background-position: center center;
     background-repeat: no-repeat;
   }
 }
+
+@media(max-width:510px){
+  .banner{
+    display: none;
+  }
+}
+
+@media(max-width:510px){
+  .margetop{
+    margin-top:50px ;
+  }
+}
+
+
+
 .sticky-list {
     @media (min-width: 992px) {
       position: sticky !important;

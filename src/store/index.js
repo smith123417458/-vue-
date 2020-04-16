@@ -12,7 +12,7 @@ export default new Vuex.Store({
     brands: {
       car: [
         
-        {name:'TOYOTA',url:'https://i.imgur.com/CHKtVCP.png'},
+        {name:'TOYOTA',url:'https://i.imgur.com/Gq0sKFi.png'},
         {name:'LEXUS',url:'https://i.imgur.com/wiA92xg.jpg'},
         {name:'MITSUBISHI',url:'https://i.imgur.com/qL0KWE2.jpg'},
         {name:'Lamborghini',url:'https://i.imgur.com/bU7hZPZ.jpg'},

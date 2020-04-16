@@ -13,9 +13,9 @@
         src="../assets/img/r02.png"
         width="30"
         height="30"
-        class="d-inline-block align-top ml-4"
+        class="d-inline-block  align-top ml-4"
       />
-      好運租車
+      <span id='mark' class="ml-2">好運租車</span>
     </a>
     <div class="collapse navbar-collapse ml-xl-6 order-2 order-xl-1">
       <ul class="navbar-nav">
@@ -43,7 +43,7 @@
     <!-- 會員登入 -->
     <ul class="navbar-nav mr-xl-6 order-1 order-xl-2">
       <li class="nav-item">
-        <router-link class="d-none d-xl-block py-3 px-4" to="/signin">
+        <router-link class=" d-block py-3 px-4" to="/signin">
           <img src="../assets/img/log-in.png" />
         </router-link>
       </li>
@@ -60,7 +60,7 @@
       </li>
 
       <li class="nav-item">
-        <div class="btn-group favorite d-none d-xl-block">
+        <div class="btn-group favorite d-xl-block py-1 ">
           <button type="button" class="btn favorite-btn" data-toggle="dropdown">
             <img src="../assets/img/heart.png" />
             <span class="badge badge-pill badge-success">{{ favoritesLength }}</span>
@@ -325,6 +325,10 @@ export default {
 @import "@/assets/scss/customMixins.scss";
 
 // navbar 預設樣式
+
+.navbar-nav{
+  flex-direction: row;
+}
 .navDefault {
   a,
   .navbar-nav a {
@@ -353,6 +357,12 @@ export default {
 
 #brand-list-rwd {
   display: none;
+}
+
+@media (max-width:501px) {
+  #mark{
+    display: none;
+  }
 }
 
 // ================================================================================
