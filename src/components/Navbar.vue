@@ -75,6 +75,7 @@
                       <a
                         href="#"
                         class="text-danger favorite-list-delbtn"
+                        id='word'
                         @click.prevent="removeFavorite(favorite, false)"
                       >
                         <i class="fas fa-times"></i>
@@ -84,6 +85,7 @@
                       <router-link
                         :to="`/productslist/${favorite.id}`"
                         class="d-block"
+                         id='word'
                       >{{ favorite.title }}</router-link>
                     </td>
                   </tr>
@@ -388,11 +390,15 @@ export default {
     right: -1px;
   }
 }
+#word{ color:black 
+ }
+
 .favorite-list {
   &:hover,
   &:active {
     background-color: rgb(0, 98, 255);
     text-decoration: underline;
+    
   }
   .favorite-list-delbtn:hover,
   .favorite-list-delbtn:active {

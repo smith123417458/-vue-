@@ -24,8 +24,7 @@
               v-for="category in this.$store.state.brands.car"
               :key="category.id"
               @click.prevent="changeCategory(category.name)"
-            > <img :src="category.url" width="25px">
-            
+            > <img :src="category.url" width="25px">          
             </a>
             <a
               href="#"
@@ -47,7 +46,6 @@
             </a>
           </div>
         </div>
-
         <!-- 右方產品 -->
         <div class="col-lg-9">
           <div class="row">
@@ -90,8 +88,6 @@ export default {
     changeCategory(selectedCategory) {
       this.$store.dispatch('changeCategory', selectedCategory);
     },
-   
-    
   },
   computed: {
     allProducts() {
@@ -112,9 +108,7 @@ export default {
   },
 };
 </script>
-
 <style lang="scss" scoped>
-
 .banner{
   background-image:url(../assets/img/banner.jpg);  
   max-width: 100%;

@@ -23,8 +23,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 
 import ZoomHover from 'vue-zoom-on-hover';
-import dateFormate from './filters/dateFormate';
-import dateFormateDetail from './filters/dateFormateDetail';
+import dateFilter from '@/filters/date';
 import currencyFilter from './filters/currency';
 
 
@@ -51,8 +50,7 @@ Vue.component('Loading', Loading);
 
 // 全域啟用 filters
 Vue.filter('currency', currencyFilter);
-Vue.filter('dateFormate', dateFormate);
-Vue.filter('dateFormateDetail', dateFormateDetail);
+Vue.filter('date', dateFilter);
 Vue.use(ZoomHover);
 Vue.use(VueSweetalert2);
 

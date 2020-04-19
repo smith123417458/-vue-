@@ -1,269 +1,201 @@
 <template>
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-9">
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead class="thead-light">
-            <th>截止日期</th>
-            <th>優惠券名稱</th>
-            <th>折扣碼</th>
-            <th class="text-right">折扣數</th>
-            <th class="text-right">是否啟用</th>
-            <th class="text-center" width="150">編輯</th>
-          </thead>
-          <tbody>
-            <tr v-for="item in coupons" :key="item.id">
-              <td>{{ item.dueDate | dateFormate }}</td>
-              <td>{{ item.title }}</td>
-              <td>{{ item.code }}</td>
-              <td class="text-right">{{ item.percent }} %</td>
-              <td class="text-right">
-                <span v-if="item.is_enabled" class="text-success">啟用</span>
-                <span v-else>未啟用</span>
-              </td>
-              <td class="text-right d-flex justify-content-around">
-                <button class="btn btn-outline-primary btn-sm" @click="openModal('edit', item)">
-                  編輯
-                </button>
-                <button class="btn btn-outline-danger btn-sm" @click="openModal('delete', item)">
-                  刪除
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <div>
+    <div class="text-right mt-4">
+      <button class="btn btn-primary text-white" @click="openCouponModal(true)">
+        建立新的優惠券
+      </button>
     </div>
+    <table class="table nowrap mt-4">
+      <thead>
+        <tr>
+          <th>名稱</th>
+          <th>折扣百分比</th>
+          <th>到期日</th>
+          <th>是否啟用</th>
+          <th>編輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, id) in coupons" :key="id">
+          <td>{{ item.title }}</td>
+          <td>{{ item.percent }}%</td>
+          <td>{{ item.due_date | date }}</td>
+          <td>
+            <span v-if="item.is_enabled === 1" class="text-success">啟用</span>
+            <span v-else class="text-muted">未啟用</span>
+          </td>
+          <td>
+            <button class="btn btn-outline-primary btn-sm"
+              @click="openCouponModal(false, item)"
+            >編輯</button>
+            <button class="btn btn-outline-danger btn-sm" @click="openDelCouponModal(item)">刪除</button>
+          </td>
+        </tr>
+      </tbody>    
+    </table>
 
-    <div class="col-md-3">
-      <div class="card card-shadow">
-        <div class="card-body">
-          <form @submit.prevent="createNewCoupon">
-            <div class="form-group">
-              <label for="couponTitle">優惠券名稱</label>
-              <input type="text" class="form-control" id="couponTitle" v-model="title" />
-            </div>
-            <div class="form-group">
-              <label for="couponTitle">折扣碼</label>
-              <input type="text" class="form-control" id="couponCode" v-model="code" />
-            </div>
-            <div class="form-group">
-              <label for="couponDueDate">截止日期</label>
-              <input type="date" class="form-control" id="couponDueDate" v-model="dueDate" />
-            </div>
-            <div class="form-group">
-              <label for="couponPercent">折扣百分比</label>
-              <input
-                type="number"
-                class="form-control"
-                id="couponPercent"
-                v-model="percent"
-                placeholder="折扣數，單位百分比"
-              />
-            </div>
-            <div class="form-group form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="couponEnabled"
-                v-model="is_enabled"
-              />
-              <label class="form-check-label" for="couponEnabled">是否啟用</label>
-            </div>
-            <div class="text-right">
-              <button type="submit" class="btn btn-warning">新增</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Edit Modal -->
-    <div class="modal fade" id="couponEditModal" tabindex="-1" role="dialog">
+   
+    <div class="modal fade" id="couponModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header bg-dark text-white">
-            <h5 class="modal-title" id="couponEditModalLabel">修改優惠券</h5>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">優惠券</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="couponEditTitle">優惠券名稱</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="couponEditTitle"
-                  v-model="template.title"
-                />
+            <div class="form-group">
+              <label for="title">標題</label>
+              <input type="text" class="form-control" id="title" v-model="tempCoupon.title"
+                placeholder="請輸入標題">
+            </div>
+            <div class="form-group">
+              <label for="coupon_code">優惠碼</label>
+              <input type="text" class="form-control" id="coupon_code" v-model="tempCoupon.code"
+                placeholder="請輸入優惠碼">
+            </div>
+            <div class="form-group">
+              <label for="due_date">到期日</label>
+              <input type="date" class="form-control" id="due_date"
+                v-model="due_date">
+            </div>
+            <div class="form-group">
+              <label for="price">折扣百分比</label>
+              <input type="number" class="form-control" id="price"
+                v-model="tempCoupon.percent" placeholder="請輸入折扣百分比">
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                  :true-value="1"
+                  :false-value="0"
+                  v-model="tempCoupon.is_enabled" id="is_enabled">
+                <label class="form-check-label" for="is_enabled">
+                  是否啟用
+                </label>
               </div>
-              <div class="form-group">
-                <label for="couponEditDueDate">截止日期</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="couponEditDueDate"
-                  v-model="template.dueDate"
-                />
-              </div>
-              <div class="form-group">
-                <label for="couponEditPercent">折扣百分比</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="couponEditPercent"
-                  v-model="template.percent"
-                  placeholder="折扣數，單位百分比"
-                />
-              </div>
-              <div class="form-group form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="couponEditEnabled"
-                  v-model="template.is_enabled"
-                />
-                <label class="form-check-label" for="couponEditEnabled">是否啟用</label>
-              </div>
-            </form>
+            </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-success" @click="editCoupon">確認修改</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary text-white"
+              @click="updateCoupon">更新優惠券</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!--Delete Modal -->
     <div class="modal fade" id="delCouponModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header bg-danger text-white">
-            <h5 class="modal-title" id="delCouponLabel">刪除優惠券</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            確定要刪除
-            <span class="text-danger font-weight-bold">{{ template.title }}</span> 優惠券嗎 ?
-            (刪除後無法復原)
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-danger" @click="deleteCoupon">刪除</button>
-          </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content border-0">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="exampleModalLabel">
+                <span>刪除優惠券</span>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                是否刪除 <strong class="text-danger">{{ tempCoupon.title }}</strong> 優惠券(刪除後將無法恢復)。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" @click="delCoupon">確認刪除</button>
+            </div>
+            </div>
         </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery';
 export default {
   data() {
     return {
-      title: '',
-      code: '',
-      dueDate: '',
-      percent: '',
-      is_enabled: true,
-      coupons: [],
-      template: {},
+      coupons: {},
+      tempCoupon: {
+        title: '',
+        is_enabled: 0,
+        percent: 100,
+        due_date: 0,
+        code: '',
+      },
+      due_date: new Date(),
+      isNew: false,
     };
   },
-  methods: {
-    getCoupons(page = 1) {
+  watch: {
+    due_date() {
       const vm = this;
-      const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`;
-
-      vm.$store.dispatch('updateLoading', true);
-
-      axios.get(apiUrl).then((response) => {
-        vm.coupons = response.data.coupons;
-        vm.$store.dispatch('updateLoading', false);
-      });
-    },
-    createNewCoupon() {
-      const vm = this;
-      const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`;
-
-      vm.$store.dispatch('updateLoading', true);
-
-      vm.dueDate = new Date(vm.dueDate).getTime() / 1000;
-
-      const newCoupon = {
-        data: {
-          title: vm.title,
-          code: vm.code,
-          dueDate: vm.dueDate,
-          percent: vm.percent,
-          is_enabled: vm.is_enabled,
-        },
-      };
-
-      axios.post(apiUrl, newCoupon).then(() => {
-        vm.getCoupons();
-        vm.$store.dispatch('updateLoading', false);
-      });
-    },
-    openModal(isDoing, item) {
-      const vm = this;
-      vm.template = Object.assign({}, item);
-
-      switch (isDoing) {
-        case 'edit': {
-          // 修改日期格式
-          const originDate = new Date(item.dueDate * 1000);
-          const dateFormate = `${originDate.getFullYear()}-${originDate.getMonth()
-            + 1}-${originDate.getDate()}`;
-
-          vm.template.dueDate = dateFormate;
-          $('#couponEditModal').modal('show');
-          break;
-        }
-        default:
-          $('#delCouponModal').modal('show');
-          break;
-      }
-    },
-    editCoupon() {
-      const vm = this;
-      const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.template.id}`;
-
-      vm.$store.dispatch('updateLoading', true);
-
-      const editedCoupon = {
-        title: vm.template.title,
-        is_enabled: vm.template.is_enabled,
-        percent: vm.template.percent,
-        due_date: new Date(vm.template.dueDate).getTime(),
-      };
-
-      axios.put(apiUrl, { data: editedCoupon }).then(() => {
-        vm.getCoupons();
-        $('#couponEditModal').modal('hide');
-        vm.$store.dispatch('updateLoading', false);
-      });
-    },
-    deleteCoupon() {
-      const vm = this;
-      const apiUrl = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.template.id}`;
-      vm.$store.dispatch('updateLoading', true);
-
-      $('#deleteModal').modal('show');
-
-      axios.delete(apiUrl).then(() => {
-        vm.getCoupons();
-        $('#delCouponModal').modal('hide');
-        vm.$store.dispatch('updateLoading', false);
-      });
+      const timestamp = Math.floor(new Date(vm.due_date) / 1000);
+      vm.tempCoupon.due_date = timestamp;
     },
   },
+  methods: {
+    openCouponModal(isNew, item) {
+      const vm = this;
+      $('#couponModal').modal('show');
+      vm.isNew = isNew;
+      if (vm.isNew) {
+        vm.tempCoupon = {};
+      } else {
+        vm.tempCoupon = Object.assign({}, item);
+        const dateAndTime = new Date(vm.tempCoupon.due_date * 1000).toISOString().split('T');
+        vm.due_date = dateAndTime[0];
+      }
+    },
+    getCoupons() {
+      const vm = this;
+      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons`;
+      this.$http.get(url, vm.tempProduct).then((response) => {
+        vm.coupons = response.data.coupons;
+        console.log(response);
+      });
+    },
+    updateCoupon() {
+      const vm = this;
+      if (vm.isNew) {
+        const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`;
+        this.$http.post(url, { data: vm.tempCoupon }).then((response) => {
+          console.log(response, vm.tempCoupon);
+          $('#couponModal').modal('hide');
+          this.getCoupons();
+        });
+      } else {
+        const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`;
+        vm.due_date = new Date(vm.tempCoupon.due_date * 1000);
+        this.$http.put(url, { data: vm.tempCoupon }).then((response) => {
+          console.log(response);
+          $('#couponModal').modal('hide');
+          this.getCoupons();
+        });
+      }
+    },
+ 
 
+    openDelCouponModal(item){
+    const vm = this;
+    $('#delCouponModal').modal("show");
+    vm.tempCoupon = Object.assign({}, item);
+    },
+
+    delCoupon(){
+        const vm = this;
+        const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`;
+         vm.$http.delete(api).then((response) => {
+            if(response.data.success){
+                $('#delCouponModal').modal('hide');
+                vm.getCoupons();
+            }else{
+                 alert('刪除失敗') 
+            }
+        })
+    },
+  },
   created() {
     this.getCoupons();
   },

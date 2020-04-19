@@ -21,7 +21,7 @@
                 <i class="fal fa-calendar-alt mr-2"></i>
                 <span class="font-weight-bold">訂單日期</span>
               </th>
-              <td class="border-top-0">{{ order.create_at | dateFormate }}</td>
+              <td class="border-top-0">{{ order.create_at | date }}</td>
             </tr>
             <tr>
               <th>
@@ -213,7 +213,6 @@ export default {
     };
   },
   methods: {
-    // 得到單筆訂單資訊
     getOrder() {
       const vm = this;
       // 取得當下訂單網址路由
