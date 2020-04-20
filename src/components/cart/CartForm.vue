@@ -211,7 +211,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/customMixins.scss";
+@import "../../assets/scss/customMixins.scss";
 .no-carts {
   height: 100%;
   @include BS-xl {

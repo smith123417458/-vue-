@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import DashNavbar from "../components/DashNavbar.vue";
-import DashSidebar from "../components/DashSidebar.vue";
+import DashNavbar from "../components/back/DashNavbar.vue";
+import DashSidebar from "../components/back/DashSidebar.vue";
 export default {
   components: {
     DashNavbar,

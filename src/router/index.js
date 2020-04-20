@@ -42,19 +42,19 @@ const routes = [{
 ,
   {
     path: 'cart',
-    component: () => import('@/components/Cart.vue'),
+    component: () => import('@/components/cart/Cart.vue'),
     children: [
       {
         path: '',
-        component: () => import('@/components/CartForm.vue'),
+        component: () => import('@/components/cart/CartForm.vue'),
       },
       {
         path: 'checkout',
-        component: () => import('@/components/Checkout.vue'),
+        component: () => import('@/components/cart/Checkout.vue'),
       },
       {
         path: 'checkout/:orderId',
-        component: () => import('@/components/CheckoutOrder.vue'),
+        component: () => import('@/components/cart/CheckoutOrder.vue'),
       },
       
     ],
@@ -66,17 +66,17 @@ const routes = [{
     children: [
       {
         path: "products",
-        component: () => import('@/components/DashProducts.vue'),
+        component: () => import('@/components/back/DashProducts.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: "coupons",
-        component: () => import('@/components/Coupon.vue'),
+        component: () => import('@/components/back/Coupon.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: "orders",
-        component: () => import('@/components/DashOrders.vue'),
+        component: () => import('@/components/back/DashOrders.vue'),
         meta: { requiresAuth: true }
       }
     ]
