@@ -1,10 +1,25 @@
 <template>
   <div class="container mt-5">
+    
     <br />
-    <br />
-    <br />
-    <br />
-
+     
+     <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-light">
+        <li class="breadcrumb-item">
+          <router-link to="/">首頁</router-link>
+        </li>
+        <li class="breadcrumb-item">
+          <router-link to="/product">產品列表</router-link>
+        </li>
+        <li class="breadcrumb-item">
+          <router-link :to="{path: '/product', query: {category: product.category}}"
+           class="text-primary">{{ product.category }}</router-link>
+        </li>
+        <li class="breadcrumb-item active">
+          {{ product.title }}
+        </li>
+      </ol>
+    </nav>
     <div class="row mb-5">
       <div class="col-lg-6">
         <zoom-on-hover :img-normal="product.imageUrl" :scale="1.5"></zoom-on-hover>
@@ -35,8 +50,9 @@
               <option :value="num" v-for="num in 10" :key="num">租 {{num}} {{product.unit}}</option>
             </select>
 
-
-          
+            <router-link to="/coupongame" class="badge badge-warning float-right">
+            折價卷適用
+          </router-link>
           <button type="button" class="btn btn-outline-dark" @click="addToCart(product.id,$event)">
             加入購物車
           </button>
@@ -50,9 +66,22 @@
                 <i class="fas fa-heart-broken"></i> 取消收藏
               </a>
 
-
+             
 
            <div class="buybox" v-if='currentcar' :style="{backgroundImage: `url(${product.imageUrl})`}"></div>
+
+          
+
+           <img class="img-fluid mt-5" src="https://i.imgur.com/v8goziO.jpg" width="600px">
+            <p>
+             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Pariatur doloribus, laudantium hic perferendis necessitatibus dolorem ipsam
+             </p>
+            <img class="img-fluid" src="https://i.imgur.com/bLfekvQ.jpg" width="600px">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Quibusdam rem sed vitae facilis modi maxime veniam similique eveniet.
+            </p>
          
         </div>
       </div>
@@ -190,6 +219,9 @@ computed: {
   background-position: center center;
   opacity: 0;
   
+}
+.badge{
+  font-size: 125%;
 }
 
 </style>
