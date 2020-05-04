@@ -2,7 +2,7 @@
   <div>
     
     <Swiper />
-
+       <scrollBtn />
     <Intro />
 
     
@@ -26,6 +26,8 @@ export default {
   components: {
 
       Swiper: () => import('@/components/front/Swiper'),
+
+      scrollBtn: () => import('@/components/front/scrollBtn'),
 
       Intro: () => import('@/components/front/Intro'),
   
