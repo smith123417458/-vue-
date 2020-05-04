@@ -9,6 +9,19 @@ const routes = [{
   redirect: '/',
 },
 {
+  path: "/cardGame",
+ component: () => import('@/components/front/cardGame.vue'),
+ }
+,
+
+{
+  path: "/pubgGame",
+ component: () => import('@/components/pubgGame.vue'),
+ }
+ ,
+
+
+{
   path: '/',
   component: Home,
   children: [{
@@ -27,19 +40,8 @@ const routes = [{
     path: "signin",
     component: () => import('@/components/Login.vue'),
   },
-  {
-    path: "cardGame",
-   component: () => import('@/components/front/cardGame.vue'),
-   }
-   ,
-   {
-    path: "pubgGame",
-   component: () => import('@/components/pubgGame.vue'),
-   }
-
-
-
-,
+  
+  
   {
     path: 'cart',
     component: () => import('@/components/cart/Cart.vue'),
@@ -80,11 +82,7 @@ const routes = [{
         meta: { requiresAuth: true }
       }
     ]
-  }
-
-
-  
-  
+  } 
   ],
 },
 

@@ -30,13 +30,20 @@
 </template>
 
 <script>
-
+import { gsap } from "gsap";
 export default {
   data() {
-    return {
-     
+    return {  
     };
   },
+
+ mounted() {
+   gsap.from(".swiper-intro", 0.9, {
+      delay: 0,
+      opacity: 0,
+      x: -1000,
+    })
+ }
  
 };
 </script>

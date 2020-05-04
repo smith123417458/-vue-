@@ -15,9 +15,9 @@
           </div>
           
           <br>
-             <!-- <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>   -->
+               <!-- <router-link to="/pubgGame" class="btn btn-primary"> 立即開始 </router-link>   -->
             <button type="button" class="btn btn-outline-primary"> 
-              <a href="https://n42.netlify.com">立即開始</a></button>
+              <a href="https://smith123417458.github.io/pubg-v9.0/">立即開始</a></button>
         </div>
         <div class="picture col-md-6 mb-3">
           <div class="box"></div>

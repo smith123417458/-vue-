@@ -13,14 +13,14 @@
         src="../assets/img/r02.png"
         width="30"
         height="30"
-        class="d-inline-block  align-top ml-4"
+        class="d-inline-block  align-top ml-4 "
       />
       <span id='mark' class="ml-2">好運租車</span>
     </a>
     <div class="collapse navbar-collapse ml-xl-6 order-2 order-xl-1">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link p-3 px-4" href="#" @click.prevent="goNewArrival">
+          <a class="nav-link p-3 px-4 logo1" href="#" @click.prevent="goNewArrival">
             <!-- <span class="hvr-underline-from-left">首頁</span> -->
             <img src="../assets/img/homepage.png" />
           </a>
@@ -42,13 +42,13 @@
     </div>
     <!-- 會員登入 -->
     <ul class="navbar-nav mr-xl-6 order-1 order-xl-2">
-      <li class="nav-item">
+      <li class="nav-item logo2">
         <router-link class=" d-block py-3 px-4" to="/signin">
           <img src="../assets/img/log-in.png" />
         </router-link>
       </li>
       <!-- 購物車按鈕 -->
-      <li class="nav-item">
+      <li class="nav-item logo3">
         <router-link class="position-relative d-block py-3 px-4" to="/cart">
           <img id="cart" src="../assets/img/cart.png" >
           <p
@@ -59,7 +59,7 @@
         </router-link>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item logo4">
         <div class="btn-group favorite d-xl-block py-1 ">
           <button type="button" class="btn favorite-btn" data-toggle="dropdown">
             <img src="../assets/img/heart.png" />
@@ -131,7 +131,7 @@
               </div>
               <div class="col-5 d-flex align-items-center">
                 <a
-                  class="d-block text-black p-3 px-4"
+                  class="d-block text-black p-3 px-4 logoAll"
                   href="#"
                   v-for="(category,ind) in this.$store.state.brands.car"
                   :key="ind+'3'"
@@ -291,6 +291,13 @@ export default {
       $("#brand-list")
         .stop()
         .slideDown(500);
+
+        //   gsap.from(".logoAll", 1, {
+        //   delay: 0.2,
+        //   opacity: 0,
+        //   x: -1,
+        //  })
+        
     },
     brandMouseLeave() {
       $("#brand-list")
@@ -319,7 +326,40 @@ export default {
     window.addEventListener("scroll", this.windowScroll, false);
     this.$store.dispatch("getCarts");
     this.$store.dispatch("favoriteModules/getFavorite");
-  }
+  },
+
+mounted() {
+   gsap.from(".logo1", 1, {
+      delay: 1.0,
+      opacity: 0,
+      x: -500,
+    })
+
+ gsap.from(".logo2", 2, {
+      delay: 1.5,
+      opacity: 0,
+      x: -900,
+    })
+
+gsap.from(".logo3", 2, {
+      delay: 2.0,
+      opacity: 0,
+      x: -1200,
+    })
+    gsap.from(".logo4", 2, {
+      delay: 2.5,
+      opacity: 0,
+      x: -1400,
+    })
+ }
+
+
+
+
+ 
+
+
+
 };
 </script>
 
